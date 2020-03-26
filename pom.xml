@@ -7,7 +7,6 @@
     <groupId>com.epam.InnokentiiObraztcov</groupId>
     <artifactId>InnokentiiObraztcov</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <packaging>jar</packaging>
 
     <properties>
         <java.source.version>1.8</java.source.version>
@@ -38,13 +37,24 @@
                 <suite.xml>DivMultiTestsSuit.xml</suite.xml>
             </properties>
         </profile>
+        <profile>
+            <id>All</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <properties>
+                <suite.xml>src/test/resources/TestSuites/AllTestSuit.xml</suite.xml>
+            </properties>
+        </profile>
     </profiles>
-    <repositories>
+
+
+    <!--<repositories>
         <repository>
             <id>project-local-repo</id>
             <url>file://${project.basedir}.m2/repository</url>
         </repository>
-    </repositories>
+    </repositories>-->
 
 
 
@@ -55,22 +65,14 @@
             <version>${testng.version}</version>
             <scope>test</scope>
         </dependency>
+
         <dependency>
             <groupId>com.epam</groupId>
             <artifactId>calculator</artifactId>
             <version>1.0</version>
-            <scope>system</scope>
-            <systemPath>C:/Users/Kesha/.m2/repository/EpamHomeWork/calculator-1.0.jar</systemPath>
         </dependency>
+        <!--C:/Users/Kesha/.m2/repository/EpamHomeWork/calculator-1.0.jar-->
 
-
-        <!--<dependency>
-            <groupId>com.epam</groupId>
-            <artifactId>calculator</artifactId>
-            <version>1.0</version>
-            <scope>system</scope>
-            <systemPath>${project.basedir}.m2/repository/EpamHomeWorkcalculator-1.0.jar</systemPath>
-        </dependency>-->
     </dependencies>
 
 
@@ -87,6 +89,7 @@
                     <target>${java.target.version}</target>
                 </configuration>
             </plugin>
+
 
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
