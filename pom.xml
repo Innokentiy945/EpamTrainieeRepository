@@ -87,8 +87,9 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>${maven-surefire-plugin.version}</version>
                 <configuration>
-                    <suiteXmlFiles>${FunctionalTest1.xml}</suiteXmlFiles>
-                    <suiteXmlFiles>${FunctionalTest2.xml}</suiteXmlFiles>
+                    <suiteXmlFiles>
+                        <suiteXmlFiles>${suite.xml}</suiteXmlFiles>
+                    </suiteXmlFiles>
                 </configuration>
             </plugin>
         </plugins>
