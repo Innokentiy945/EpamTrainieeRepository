@@ -1,9 +1,0 @@
-<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
-
-<suite name="First suit">
-    <test name="SumSub tests">
-        <classes>
-            <class name="hw1.SumSubTests"/>
-        </classes>
-    </test>
-</suite>
