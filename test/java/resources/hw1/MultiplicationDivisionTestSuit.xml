@@ -1,0 +1,13 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="MultiplicationDivisionTestSuit">
+    <test name="MultiplicationDivision tests">
+        <classes>
+            <class name="hw1.MultiplicationDivisionTests.CalculatorDivisionTwoDoubleDigitsTest"/>
+            <class name="hw1.MultiplicationDivisionTests.CalculatorDivisionTwoLongDigitsTest"/>
+            <class name="hw1.MultiplicationDivisionTests.CalculatorMultiplicationTwoDoubleDigitsTest"/>
+            <class name="hw1.MultiplicationDivisionTests.CalculatorMultiplicationTwoLongDigitsTest"/>
+        </classes>
+    </test>
+</suite>
+
