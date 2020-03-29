@@ -20,42 +20,53 @@
 
     <profiles>
         <profile>
-            <id>SumSub</id>
+            <id>AdditionSubtraction</id>
             <activation>
-                <activeByDefault>false</activeByDefault>
+                <activeByDefault>true</activeByDefault>
             </activation>
             <properties>
-                <suite.xml>SumSubTestSuit.xml</suite.xml>
+                <suite.xml>
+                    src\test\java\resources\hw1\AdditionSubtractionTestSuit.xml
+                </suite.xml>
             </properties>
         </profile>
+
         <profile>
-            <id>DivMulti</id>
+            <id>MultiplicationDivision</id>
             <activation>
-                <activeByDefault>false</activeByDefault>
+                <activeByDefault>true</activeByDefault>
             </activation>
             <properties>
-                <suite.xml>DivMultiTestsSuit.xml</suite.xml>
+                <suite.xml>
+                    src\test\java\resources\hw1\MultiplicationDivisionTestSuit.xml
+                </suite.xml>
             </properties>
         </profile>
+
         <profile>
-            <id>All</id>
+            <id>Functions</id>
             <activation>
                 <activeByDefault>false</activeByDefault>
             </activation>
             <properties>
-                <suite.xml>src/test/resources/TestSuites/AllTestSuit.xml</suite.xml>
+                <suite.xml>
+                    src\test\java\resources\hw1\FunctionsTestSuit.xml
+                </suite.xml>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>AllTests</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <properties>
+                <suite.xml>
+                    src\test\java\resources\hw1\AllTestSuit.xml
+                </suite.xml>
             </properties>
         </profile>
     </profiles>
-
-
-    <!--<repositories>
-        <repository>
-            <id>project-local-repo</id>
-            <url>file://${project.basedir}.m2/repository</url>
-        </repository>
-    </repositories>-->
-
 
 
     <dependencies>
@@ -70,8 +81,9 @@
             <groupId>com.epam</groupId>
             <artifactId>calculator</artifactId>
             <version>1.0</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/src/test/java/resources/hw1/CalculatorFile/calculator-1.0.jar</systemPath>
         </dependency>
-        <!--C:/Users/Kesha/.m2/repository/EpamHomeWork/calculator-1.0.jar-->
 
     </dependencies>
 
@@ -97,10 +109,8 @@
                 <version>${maven-surefire-plugin.version}</version>
                 <configuration>
                     <suiteXmlFiles>
-                        <suiteXmlFiles>C:\Users\Kesha\IdeaProjects\InnokentiiObraztcov\src\test\java\resources\SumSubTestSuit.xml</suiteXmlFiles>
-                        <suiteXmlFiles>C:\Users\Kesha\IdeaProjects\InnokentiiObraztcov\src\test\java\resources\DivMultiTestsSuit.xml</suiteXmlFiles>
+                        <suiteXmlFiles>${suite.xml}</suiteXmlFiles>
                     </suiteXmlFiles>
-                    <!--<useFile>false</useFile>-->
                 </configuration>
             </plugin>
         </plugins>
