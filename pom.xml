@@ -34,7 +34,7 @@
         <profile>
             <id>MultiplicationDivision</id>
             <activation>
-                <activeByDefault>true</activeByDefault>
+                <activeByDefault>false</activeByDefault>
             </activation>
             <properties>
                 <suite.xml>
@@ -62,7 +62,7 @@
             </activation>
             <properties>
                 <suite.xml>
-                    src/test/java\resources/hw1/AllTestSuit.xml
+                    src/test/java/resources/hw1/AllTestSuit.xml
                 </suite.xml>
             </properties>
         </profile>
@@ -80,9 +80,7 @@
         <dependency>
             <groupId>com.epam</groupId>
             <artifactId>calculator</artifactId>
-            <version>1.0</version>
-            <scope>system</scope>
-            <systemPath>${project.basedir}/src/test/java/resources/hw1/CalculatorFile/calculator-1.0.jar</systemPath>
+            <version>1.0</version>          
         </dependency>
 
     </dependencies>
