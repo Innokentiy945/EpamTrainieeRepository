@@ -16,65 +16,56 @@ public class FunctionalTest1 {
     private WebDriver driver;
     private String url = "https://jdi-testing.github.io/jdi-light/index.html";
 
-    @BeforeSuite
+    @BeforeMethod
     public void setUp() {
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-    }
-
-    @BeforeTest
-    public void profileSetup() {
         driver.manage().window().maximize();
     }
 
-    @BeforeClass
-    public void appSetup() {
-        driver.get(url);
-    }
 
     @Test
     public void exercise1Test(){
         SoftAssert softAssert = new SoftAssert();
 
         //1. Open test site by URL
-        String currentUrl = driver.getCurrentUrl();
-        softAssert.assertEquals(currentUrl, url);
+        driver.get(url);
         System.out.println("Step passed: test site is opened");
 
 
         //2. Assert Browser title
         String currentTitle = driver.getTitle();
         softAssert.assertEquals(currentTitle, "Home Page");
-        System.out.println("Step passed: browser title equals \"Home Page\"");
+        System.out.println("Step passed: browser title equals \"Home Page\"");
 
 
         //3. Perform login
-        driver.findElement(By.xpath("/html/body/header/div/nav/ul[2]")).click();
+        driver.findElement(By.id("user-icon")).click();
         driver.findElement(By.id("name")).sendKeys("Roman");
         driver.findElement(By.id("password")).sendKeys("Jdi1234");
-        driver.findElement(By.xpath("//*[@id=\"login-button\"]")).click();
-        boolean actualLogIn = driver.findElement(By.xpath("/html/body/header/div/nav/ul[2]/li/div/div/button")).isEnabled();
+        driver.findElement(By.id("login-button")).click();
+        boolean actualLogIn = driver.findElement(By.className("logout")).isDisplayed();
         softAssert.assertTrue(actualLogIn);
         System.out.println("Step passed: user is logged");
 
 
         //4. Assert Username is loggined
-        WebElement actualUserName = driver.findElement(By.xpath("//*[@id=\"user-name\"]"));
+        WebElement actualUserName = driver.findElement(By.id("user-name"));
         String expectedUserName = "Roman Iovlev";
         softAssert.assertEquals(actualUserName,expectedUserName);
-        System.out.println("Test passed: name is displayed and equals to expected result");
+        System.out.println("Test passed: name is displayed and equals to expected result");
 
 
         //5. Assert that there are 4 items on the header section are displayed and they have proper texts
-        List<WebElement> actualElements = driver.findElements(By.className("uui-navigation nav navbar-nav m-l8"));
+        List<WebElement> actualElements = driver.findElements(By.cssSelector(".m-l8 > li"));
         List<String> expectedElements = Arrays.asList("HOME", "CONTACT FORM", "SERVICE", "METALS & COLORS");
         softAssert.assertEquals(actualElements,expectedElements);
         System.out.println("Step passed: menu buttons are displayed and have proper texts");
 
 
         //6. Assert that there are 4 images on the Index Page and they are displayed
-        WebElement actualImage = driver.findElement(By.xpath("/html/body/div/div[2]/main/div[2]/div[2]"));
+        WebElement actualImage = driver.findElement(By.className("benefit-icon"));
         boolean expectedImage = actualImage.isDisplayed();
         softAssert.assertEquals(actualImage,expectedImage);
         System.out.println("Step passed: images are displayed");
@@ -89,7 +80,7 @@ public class FunctionalTest1 {
                 "Already have good base (about 20 internal and some external projects), wish to get more…"
         );
         softAssert.assertEquals(actualText,expectedText);
-        System.out.println("Step passed: texts are displayed and equal to expected");
+        System.out.println("Step passed: texts are displayed and equal to expected");
 
 
         //8. Assert that there is the iframe with “Frame Button” exist
