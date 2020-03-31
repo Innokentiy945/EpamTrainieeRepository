@@ -26,7 +26,7 @@
             </activation>
             <properties>
                 <suite.xml>
-                    src/test/java/resources/hw1/AdditionSubtractionTestSuit.xml
+                    src/test/resources/hw1/AdditionSubtractionTestSuit.xml
                 </suite.xml>
             </properties>
         </profile>
@@ -34,11 +34,11 @@
         <profile>
             <id>MultiplicationDivision</id>
             <activation>
-                <activeByDefault>false</activeByDefault>
+                <activeByDefault>true</activeByDefault>
             </activation>
             <properties>
                 <suite.xml>
-                    src/test/java/resources/hw1/MultiplicationDivisionTestSuit.xml
+                    src/test/resources/hw1/MultiplicationDivisionTestSuit.xml
                 </suite.xml>
             </properties>
         </profile>
@@ -50,7 +50,7 @@
             </activation>
             <properties>
                 <suite.xml>
-                    src/test/java/resources/hw1/FunctionsTestSuit.xml
+                    src/test/resources/hw1/FunctionsTestSuit.xml
                 </suite.xml>
             </properties>
         </profile>
@@ -62,7 +62,7 @@
             </activation>
             <properties>
                 <suite.xml>
-                    src/test/java/resources/hw1/AllTestSuit.xml
+                    src/test/resources/hw1/AllTestSuit.xml
                 </suite.xml>
             </properties>
         </profile>
@@ -80,7 +80,7 @@
         <dependency>
             <groupId>com.epam</groupId>
             <artifactId>calculator</artifactId>
-            <version>1.0</version>          
+            <version>1.0</version>
         </dependency>
 
     </dependencies>
@@ -114,5 +114,3 @@
         </plugins>
     </build>
 </project>
-
-
