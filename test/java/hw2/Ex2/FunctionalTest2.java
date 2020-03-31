@@ -4,10 +4,17 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.*;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.testng.asserts.SoftAssert;
+
+import java.util.List;
 import java.util.concurrent.TimeUnit;
+
+import static org.testng.Assert.assertFalse;
+import static org.testng.Assert.assertTrue;
+import static org.testng.AssertJUnit.assertEquals;
 
 public class FunctionalTest2 {
 
@@ -15,96 +22,95 @@ public class FunctionalTest2 {
     private String url = "https://jdi-testing.github.io/jdi-light/index.html ";
 
 
-    @BeforeSuite
+    @BeforeMethod
     public void setUp() {
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
-        driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
-    }
-
-    @BeforeTest
-    public void profileSetup() {
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.manage().window().maximize();
-    }
-
-    @BeforeClass
-    public void appSetup() {
-        driver.get(url);
     }
 
     @Test
     public void FunctionalTest2() {
-        SoftAssert softAssert = new SoftAssert();
 
         //1. Open test site by URL
-        String currentUrl = driver.getCurrentUrl();
-        softAssert.assertEquals(currentUrl, url);
+        driver.get(url);
         System.out.println("Step passed: test site is opened");
 
 
         //2. Assert Browser title
         String currentTitle = driver.getTitle();
-        softAssert.assertEquals(currentTitle, "Home Page");
+        assertEquals(currentTitle, "Home Page");
         System.out.println("Step passed: browser title equals \"Home Page\"");
 
 
         //3. Perform login
-        driver.findElement(By.xpath("/html/body/header/div/nav/ul[2]")).click();
+        driver.findElement(By.id("user-icon")).click();
         driver.findElement(By.id("name")).sendKeys("Roman");
         driver.findElement(By.id("password")).sendKeys("Jdi1234");
-        driver.findElement(By.xpath("//*[@id=\"login-button\"]")).click();
-        boolean actualLogIn = driver.findElement(By.xpath("/html/body/header/div/nav/ul[2]/li/div/div/button")).isEnabled();
-        softAssert.assertTrue(actualLogIn);
+        driver.findElement(By.id("login-button")).click();
+        boolean actualLogIn = driver.findElement(By.className("logout")).isDisplayed();
+        assertTrue(actualLogIn);
         System.out.println("Step passed: user is logged");
 
 
         //4. Assert Username is loggined
-        WebElement actualUserName = driver.findElement(By.xpath("//*[@id=\"user-name\"]"));
-        String expectedUserName = "Roman Iovlev";
-        softAssert.assertEquals(actualUserName,expectedUserName);
+
+        WebElement actualUserName = driver.findElement(By.id("user-name"));
+        assertTrue(actualUserName.isDisplayed());
         System.out.println("Step passed: name is displayed and equals to expected result");
 
 
+
+
         //5.Open through the header menu Service -> Different Elements Page
-        driver.findElement(By.xpath("//*[@id=\"mCSB_1_container\"]/ul/li[3]/a")).click();
-        driver.findElement(By.xpath("//*[@id=\"mCSB_1_container\"]/ul/li[3]/ul/li[8]/a/span")).click();
+        driver.findElement(By.linkText("Service")).click();
+        driver.findElement(By.linkText("Different elements")).click();
         String actualPage = driver.getTitle();
-        String expectedPage = "https://jdi-testing.github.io/jdi-light/different-elements.html";
-        softAssert.assertEquals(actualPage,expectedPage);
+        String expectedPage = "Different Elements";
+        assertEquals(actualPage, expectedPage);
         System.out.println("Step passed: page is opened");
 
 
         //6.Select checkboxes
-        driver.findElement(By.xpath("/html/body/div/div[2]/main/div[2]/div/div[2]/label[1]/input")).click();
-        driver.findElement(By.xpath("/html/body/div/div[2]/main/div[2]/div/div[2]/label[3]/input")).click();
-        boolean actualCheckBox1 = driver.findElement(By.xpath("/html/body/div/div[2]/main/div[2]/div/div[2]/label[1]/input")).isSelected();
-        boolean actualCheckBox2 = driver.findElement(By.xpath("/html/body/div/div[2]/main/div[2]/div/div[2]/label[3]/input")).isSelected();
-        softAssert.assertTrue(actualCheckBox1);
-        softAssert.assertTrue(actualCheckBox2);
+        driver.findElement(By.xpath("//label[normalize-space() = 'Wind']")).click();
+        driver.findElement(By.xpath("//label[normalize-space() = 'Water']")).click();
+        boolean actualCheckBox1 = driver.findElement(By.xpath("//label[normalize-space() = 'Wind']")).isSelected();
+        boolean actualCheckBox2 = driver.findElement(By.xpath("//label[normalize-space() = 'Water']")).isSelected();
+        assertFalse(actualCheckBox1);
+        assertFalse(actualCheckBox2);
         System.out.println("Step passed: elements are checked");
 
 
         //7.Select radio
-        driver.findElement(By.xpath("/html/body/div/div[2]/main/div[2]/div/div[3]/label[1]/input")).click();
-        boolean actualRadioButton = driver.findElement(By.xpath("/html/body/div/div[2]/main/div[2]/div/div[3]/label[1]/input")).isSelected();
-        softAssert.assertTrue(actualRadioButton);
+        driver.findElement(By.xpath("//label[normalize-space() = 'Selen']")).click();
+        boolean actualRadioButton = driver.findElement(By.xpath("//label[normalize-space() = 'Selen']")).isSelected();
+        assertFalse(actualRadioButton);
         System.out.println("Step passed: element is checked");
 
 
         //8.Select in dropdown
-        driver.findElement(By.xpath("/html/body/div/div[2]/main/div[2]/div/div[4]/select")).click();
-        boolean actualDropDown = driver.findElement(By.xpath("/html/body/div/div[2]/main/div[2]/div/div[4]/select")).isSelected();
-        softAssert.assertTrue(actualDropDown);
+        driver.findElement(By.className("colors")).click();
+        WebElement actualDropDown = driver.findElement(By.cssSelector(".colors select"));
+        new Select(actualDropDown).selectByVisibleText("Yellow");
+        assertTrue(actualDropDown.isDisplayed());
         System.out.println("Step passed: element is selected");
 
 
-        //9.Assert individual logging after selecting items
-        driver.findElement(By.xpath("/html/body/div/div[2]/main/div[2]/div/div[2]/label[1]/input")).click();
-        driver.findElement(By.xpath("/html/body/div/div[2]/main/div[2]/div/div[3]/label[1]/input")).click();
-        driver.findElement(By.xpath("/html/body/div/div[2]/main/div[2]/div/div[4]")).click();
+        //9.Assert that
+        //for each checkbox,radiobutton, dropbox there are an individual log row and value is corresponded to the status of checkbox
+        WebElement waterLog = driver.findElement(By.xpath("//li[contains(text(),'Water: condition changed to true')]"));
+        assertTrue(waterLog.isDisplayed());
 
-        boolean actualLogging = driver.findElement(By.xpath("//*[@id=\"mCSB_2_container\"]/section[1]/div[2]")).isDisplayed();
-        softAssert.assertTrue(actualLogging);
+        WebElement windLog = driver.findElement(By.xpath("//li[contains(text(),'Wind: condition changed to true')]"));
+        assertTrue(windLog.isDisplayed());
+
+        WebElement selenLog = driver.findElement(By.xpath("//li[contains(text(),'metal: value changed to  Selen')]"));
+        assertTrue(selenLog.isDisplayed());
+
+        WebElement dropDownLog = driver.findElement(By.xpath("//li[contains(text(),'Colors: value changed to Yellow')]"));
+        assertTrue(dropDownLog.isDisplayed());
+
         System.out.println("Step passed: log for all elements exist");
     }
 
