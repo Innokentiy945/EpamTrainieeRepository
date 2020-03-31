@@ -26,7 +26,7 @@
             </activation>
             <properties>
                 <suite.xml>
-                    src\test\java\resources\hw1\AdditionSubtractionTestSuit.xml
+                    src/test/java/resources/hw1/AdditionSubtractionTestSuit.xml
                 </suite.xml>
             </properties>
         </profile>
@@ -38,7 +38,7 @@
             </activation>
             <properties>
                 <suite.xml>
-                    src\test\java\resources\hw1\MultiplicationDivisionTestSuit.xml
+                    src/test/java/resources/hw1/MultiplicationDivisionTestSuit.xml
                 </suite.xml>
             </properties>
         </profile>
@@ -50,7 +50,7 @@
             </activation>
             <properties>
                 <suite.xml>
-                    src\test\java\resources\hw1\FunctionsTestSuit.xml
+                    src/test/java/resources/hw1/FunctionsTestSuit.xml
                 </suite.xml>
             </properties>
         </profile>
@@ -62,7 +62,7 @@
             </activation>
             <properties>
                 <suite.xml>
-                    src\test\java\resources\hw1\AllTestSuit.xml
+                    src/test/java\resources/hw1/AllTestSuit.xml
                 </suite.xml>
             </properties>
         </profile>
