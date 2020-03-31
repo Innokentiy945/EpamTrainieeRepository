@@ -11,7 +11,7 @@ public class CalculatorMultiplicationTwoDoubleDigitsTest extends CalculatorSetUp
     @Test(dataProvider = "testMultiDataDouble", groups = "divmultitests")
     public void DoubleMulti(Double a, Double b, Double expected) {
         Double actual = calculator.mult(a, b);
-        assertEquals(java.util.Optional.of(actual), java.util.Optional.ofNullable(expected));
+        assertEquals((Double)actual, expected);
     }
 
     @DataProvider

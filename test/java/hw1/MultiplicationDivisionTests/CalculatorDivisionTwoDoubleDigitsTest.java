@@ -11,7 +11,7 @@ public class CalculatorDivisionTwoDoubleDigitsTest extends CalculatorSetUp {
     @Test(dataProvider = "testDivDataDouble", groups = "divmultitests")
     public void DivisionTwoLongDigits(Double a, Double b, Double expected) {
         double actual = calculator.div(a, b);
-        assertEquals(java.util.Optional.of(actual), java.util.Optional.ofNullable(expected));
+        assertEquals((Double) actual, expected);
     }
 
 

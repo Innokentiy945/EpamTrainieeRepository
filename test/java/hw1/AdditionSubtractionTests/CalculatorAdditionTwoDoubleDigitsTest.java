@@ -4,6 +4,7 @@ import hw1.CalculatorSetUp;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
+
 import static org.testng.Assert.assertEquals;
 
 public class CalculatorAdditionTwoDoubleDigitsTest extends CalculatorSetUp {
@@ -11,7 +12,7 @@ public class CalculatorAdditionTwoDoubleDigitsTest extends CalculatorSetUp {
     @Test(dataProvider = "testSumDataDouble", groups = "sumsubtests")
     public void DoubleSum(Double a, Double b, Double expected){
         double actual = calculator.sum(a, b);
-        assertEquals(java.util.Optional.of(actual), java.util.Optional.ofNullable(expected));
+        assertEquals((Double) actual, expected);
     }
 
     @DataProvider

@@ -11,7 +11,7 @@ public class CalculatorMultiplicationTwoLongDigitsTest extends CalculatorSetUp {
     @Test(dataProvider = "testMultiDataLong", groups = "divmultitests")
     public void MultiplicationTwoLongDigits(Long a, Long b, Long expected) {
         long actual = calculator.mult(a, b);
-        assertEquals(java.util.Optional.of(actual), java.util.Optional.ofNullable(expected));
+        assertEquals((Long) actual, expected);
     }
 
 
