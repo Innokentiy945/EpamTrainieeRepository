@@ -34,7 +34,7 @@
         <profile>
             <id>MultiplicationDivision</id>
             <activation>
-                <activeByDefault>true</activeByDefault>
+                <activeByDefault>false</activeByDefault>
             </activation>
             <properties>
                 <suite.xml>
