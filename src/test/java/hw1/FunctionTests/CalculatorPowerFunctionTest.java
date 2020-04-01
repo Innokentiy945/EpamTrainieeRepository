@@ -9,8 +9,8 @@ import static org.testng.Assert.assertEquals;
 public class CalculatorPowerFunctionTest extends CalculatorSetUp {
 
     @Test(dataProvider = "testPowData", groups = "functions")
-    public void PowerFunction(Double a, Double b, Double expected){
-        Double actual = calculator.pow(a, b);
+    public void PowerFunction(double a, double b, double expected){
+        double actual = calculator.pow(a, b);
         assertEquals(actual, expected);
     }
 
