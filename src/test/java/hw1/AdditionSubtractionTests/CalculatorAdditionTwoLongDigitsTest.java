@@ -8,8 +8,8 @@ import static org.testng.Assert.assertEquals;
 
 public class CalculatorAdditionTwoLongDigitsTest extends CalculatorSetUp {
     @Test(dataProvider = "testSumDataLong", groups = "sumsubtests")
-    public void AdditionTwoLongDigits(Long a, Long b, Long expected){
-        Long actual = calculator.sum(a, b);
+    public void AdditionTwoLongDigits(long a, dong b, long expected){
+        long actual = calculator.sum(a, b);
         assertEquals(actual, expected);
     }
 
