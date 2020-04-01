@@ -11,8 +11,8 @@ public class CalculatorCosineFunctionTest extends CalculatorSetUp {
 
 
     @Test(dataProvider = "testCosData", groups = "functions")
-    public void CosineFunction(Double a, Double expected) {
-        Double actual = calculator.cos(a);
+    public void CosineFunction(double a, double expected) {
+        double actual = calculator.cos(a);
         assertEquals(actual, expected);
     }
 
