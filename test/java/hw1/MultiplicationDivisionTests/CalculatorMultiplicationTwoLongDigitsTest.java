@@ -10,8 +10,8 @@ public class CalculatorMultiplicationTwoLongDigitsTest extends CalculatorSetUp {
 
     @Test(dataProvider = "testMultiDataLong", groups = "divmultitests")
     public void MultiplicationTwoLongDigits(Long a, Long b, Long expected) {
-        long actual = calculator.mult(a, b);
-        assertEquals((Long) actual, expected);
+        Long actual = calculator.mult(a, b);
+        assertEquals(actual, expected);
     }
 
 
