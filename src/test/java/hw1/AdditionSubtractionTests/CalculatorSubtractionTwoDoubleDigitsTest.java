@@ -9,8 +9,8 @@ import static org.testng.Assert.assertEquals;
 public class CalculatorSubtractionTwoDoubleDigitsTest extends CalculatorSetUp {
 
     @Test(dataProvider = "testSubDataDouble", groups = "sumsubtests")
-    public void SubtractionTwoDoubleDigits(Double a, Double b, Double expected){
-        Double actual = calculator.sub(a, b);
+    public void SubtractionTwoDoubleDigits(double a, double b, double expected){
+        double actual = calculator.sub(a, b);
         assertEquals(actual, expected);
     }
 
