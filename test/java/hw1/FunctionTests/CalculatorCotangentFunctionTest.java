@@ -9,7 +9,7 @@ import static org.testng.Assert.assertEquals;
 public class CalculatorCotangentFunctionTest extends CalculatorSetUp {
 
     @Test(dataProvider = "testCtgData", groups = "functions")
-    public void ctgTest(double a, double expected) {
+    public void CotangentFunction(double a, double expected) {
         double actual = calculator.ctg(a);
         assertEquals(actual, expected);
     }
