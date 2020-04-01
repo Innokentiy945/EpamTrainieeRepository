@@ -10,8 +10,8 @@ public class CalculatorSubtractionTwoDoubleDigitsTest extends CalculatorSetUp {
 
     @Test(dataProvider = "testSubDataDouble", groups = "sumsubtests")
     public void SubtractionTwoDoubleDigits(Double a, Double b, Double expected){
-        double actual = calculator.sub(a, b);
-        assertEquals((Double) actual, expected);
+        Double actual = calculator.sub(a, b);
+        assertEquals(actual, expected);
     }
 
     @DataProvider
