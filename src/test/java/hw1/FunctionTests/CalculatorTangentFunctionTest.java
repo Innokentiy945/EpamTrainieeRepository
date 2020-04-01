@@ -10,8 +10,8 @@ public class CalculatorTangentFunctionTest extends CalculatorSetUp {
 
 
     @Test(dataProvider = "testTgData", groups = "functions")
-    public void TangentFunction(Double a, Double expected) {
-        Double actual = calculator.tg(a);
+    public void TangentFunction(double a, double expected) {
+        double actual = calculator.tg(a);
         assertEquals(actual, expected);
     }
 
