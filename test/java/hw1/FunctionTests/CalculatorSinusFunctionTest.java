@@ -10,7 +10,7 @@ public class CalculatorSinusFunctionTest extends CalculatorSetUp {
 
 
     @Test(dataProvider = "testSinData", groups = "functions")
-    public void sinTest(double a, double expected) {
+    public void SinusFunction(double a, double expected) {
         double actual = calculator.sin(a);
         assertEquals(actual, expected);
     }
