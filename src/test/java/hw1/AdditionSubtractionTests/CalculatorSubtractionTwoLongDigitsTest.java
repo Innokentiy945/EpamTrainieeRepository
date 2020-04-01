@@ -10,8 +10,8 @@ public class CalculatorSubtractionTwoLongDigitsTest extends CalculatorSetUp {
 
 
     @Test(dataProvider = "testSubDataLong", groups = "sumsubtests")
-    public void SubtractionTwoLongDigits(Long a, Long b, Long expected){
-        Long actual = calculator.sub(a, b);
+    public void SubtractionTwoLongDigits(long a, long b, long expected){
+        long actual = calculator.sub(a, b);
         assertEquals(actual, expected);
     }
 
