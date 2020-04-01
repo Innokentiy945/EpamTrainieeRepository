@@ -9,8 +9,8 @@ import static org.testng.Assert.assertEquals;
 public class CalculatorDivisionTwoDoubleDigitsTest extends CalculatorSetUp {
 
     @Test(dataProvider = "testDivDataDouble", groups = "divmultitests")
-    public void DivisionTwoLongDigits(Double a, Double b, Double expected) {
-        Double actual = calculator.div(a, b);
+    public void DivisionTwoLongDigits(double a, double b, double expected) {
+        double actual = calculator.div(a, b);
         assertEquals(actual, expected);
     }
 
