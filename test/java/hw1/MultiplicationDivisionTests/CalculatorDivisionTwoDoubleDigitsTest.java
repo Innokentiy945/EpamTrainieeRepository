@@ -10,8 +10,8 @@ public class CalculatorDivisionTwoDoubleDigitsTest extends CalculatorSetUp {
 
     @Test(dataProvider = "testDivDataDouble", groups = "divmultitests")
     public void DivisionTwoLongDigits(Double a, Double b, Double expected) {
-        double actual = calculator.div(a, b);
-        assertEquals((Double) actual, expected);
+        Double actual = calculator.div(a, b);
+        assertEquals(actual, expected);
     }
 
 
