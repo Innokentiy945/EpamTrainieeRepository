@@ -9,8 +9,8 @@ import static org.testng.Assert.assertEquals;
 public class CalculatorSquareRootFunctionTest extends CalculatorSetUp {
 
     @Test(dataProvider = "testSqrtData", groups = "functions")
-    public void SquareRootFunction(double a, double expected){
-        double actual = calculator.sqrt(a);
+    public void SquareRootFunction(Double a, Double expected){
+        Double actual = calculator.sqrt(a);
         assertEquals(actual, expected);
     }
 
