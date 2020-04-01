@@ -26,7 +26,7 @@
             </activation>
             <properties>
                 <suite.xml>
-                    src/test/resources/hw1/AdditionSubtractionTestSuit.xml
+                    ${basedir}/src/test/resources/hw1/AdditionSubtractionTestSuit.xml
                 </suite.xml>
             </properties>
         </profile>
@@ -38,7 +38,7 @@
             </activation>
             <properties>
                 <suite.xml>
-                    src/test/resources/hw1/MultiplicationDivisionTestSuit.xml
+                    ${basedir}/src/test/resources/hw1/MultiplicationDivisionTestSuit.xml
                 </suite.xml>
             </properties>
         </profile>
@@ -50,7 +50,7 @@
             </activation>
             <properties>
                 <suite.xml>
-                    src/test/resources/hw1/FunctionsTestSuit.xml
+                    ${basedir}/src/test/resources/hw1/FunctionsTestSuit.xml
                 </suite.xml>
             </properties>
         </profile>
@@ -62,11 +62,12 @@
             </activation>
             <properties>
                 <suite.xml>
-                    src/test/resources/hw1/AllTestSuit.xml
+                    ${basedir}/src/test/resources/hw1/AllTestSuit.xml
                 </suite.xml>
             </properties>
         </profile>
     </profiles>
+
 
 
     <dependencies>
@@ -82,7 +83,7 @@
             <artifactId>calculator</artifactId>
             <version>1.0</version>
             <scope>system</scope>
-            <systemPath>${basedir}/src/test/resources/hw1/CalculatorFile/calculator-1.0.jar</systemPath>
+            <systemPath>${project.basedir}/src/test/resources/hw1/CalculatorFile/calculator-1.0.jar</systemPath>
         </dependency>
 
     </dependencies>
@@ -91,6 +92,13 @@
 
 
     <build>
+
+        <resources>
+            <resource>
+                <directory>${basedir}/test/resources</directory>
+            </resource>
+        </resources>
+
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
