@@ -10,8 +10,8 @@ import static org.testng.Assert.assertEquals;
 public class CalculatorAdditionTwoDoubleDigitsTest extends CalculatorSetUp {
 
     @Test(dataProvider = "testSumDataDouble", groups = "sumsubtests")
-    public void AdditionTwoDoubleDigits(Double a, Double b, Double expected){
-        Double actual = calculator.sum(a, b);
+    public void AdditionTwoDoubleDigits(double a, double b, double expected){
+        double actual = calculator.sum(a, b);
         assertEquals(actual, expected);
     }
 
