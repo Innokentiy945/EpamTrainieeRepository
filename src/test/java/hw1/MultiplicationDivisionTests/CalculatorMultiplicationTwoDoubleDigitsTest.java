@@ -9,8 +9,8 @@ import static org.testng.Assert.assertEquals;
 public class CalculatorMultiplicationTwoDoubleDigitsTest extends CalculatorSetUp {
 
     @Test(dataProvider = "testMultiDataDouble", groups = "divmultitests")
-    public void MultiplicationTwoDoubleDigits(Double a, Double b, Double expected) {
-        Double actual = calculator.mult(a, b);
+    public void MultiplicationTwoDoubleDigits(double a, double b, double expected) {
+        double actual = calculator.mult(a, b);
         assertEquals(actual, expected);
     }
 
