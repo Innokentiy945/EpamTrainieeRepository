@@ -11,8 +11,8 @@ public class CalculatorAdditionTwoDoubleDigitsTest extends CalculatorSetUp {
 
     @Test(dataProvider = "testSumDataDouble", groups = "sumsubtests")
     public void AdditionTwoDoubleDigits(Double a, Double b, Double expected){
-        double actual = calculator.sum(a, b);
-        assertEquals((Double) actual, expected);
+        Double actual = calculator.sum(a, b);
+        assertEquals(actual, expected);
     }
 
     @DataProvider
