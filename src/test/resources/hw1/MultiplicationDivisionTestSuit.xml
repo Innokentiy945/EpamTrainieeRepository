@@ -2,12 +2,10 @@
 
 <suite name="MultiplicationDivisionTestSuit">
     <test name="MultiplicationDivision tests">
-        <classes>
-            <class name="hw1.MultiplicationDivisionTests.CalculatorDivisionTwoDoubleDigitsTest"/>
-            <class name="hw1.MultiplicationDivisionTests.CalculatorDivisionTwoLongDigitsTest"/>
-            <class name="hw1.MultiplicationDivisionTests.CalculatorMultiplicationTwoDoubleDigitsTest"/>
-            <class name="hw1.MultiplicationDivisionTests.CalculatorMultiplicationTwoLongDigitsTest"/>
-        </classes>
+        <packages>
+            <package name="hw1.Multiplication"></package>
+            <package name="hw1.Division"></package>
+        </packages>
     </test>
 </suite>
 

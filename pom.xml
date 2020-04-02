@@ -44,13 +44,13 @@
         </profile>
 
         <profile>
-            <id>Functions</id>
+            <id>Trigonometry</id>
             <activation>
                 <activeByDefault>false</activeByDefault>
             </activation>
             <properties>
                 <suite.xml>
-                    ${basedir}/src/test/resources/hw1/FunctionsTestSuit.xml
+                    ${basedir}/src/test/resources/hw1/TrigonometryTestSuit.xml
                 </suite.xml>
             </properties>
         </profile>
