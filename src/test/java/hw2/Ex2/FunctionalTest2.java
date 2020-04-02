@@ -17,7 +17,6 @@ public class FunctionalTest2 extends BaseTest {
 
     @Test
     public void FunctionalTest2() {
-        SoftAssert softAssert = new SoftAssert();
 
         //1. Open test site by URL
         openTestUrl();
@@ -35,7 +34,7 @@ public class FunctionalTest2 extends BaseTest {
 
         //4. Assert Username is loggined
         assertTrue(isUsernameDisplayed());
-        softAssert.assertEquals(getUsername(), "ROMAN IOVLEV");
+        assertEquals(getUsername(), "ROMAN IOVLEV");
         System.out.println("Step passed: name is displayed and equals to expected result");
 
 
