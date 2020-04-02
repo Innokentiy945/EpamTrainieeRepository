@@ -21,7 +21,7 @@ public class FunctionalTest2 extends BaseTest {
 
         //1. Open test site by URL
         openTestUrl();
-
+        System.out.println("Step passed: url opens");
 
         //2. Assert Browser title
         String currentTitle = driver.getTitle();
@@ -31,7 +31,7 @@ public class FunctionalTest2 extends BaseTest {
 
         //3. Perform login
         login("Roman", "Jdi1234");
-
+        System.out.println("Step passed: login operation have been passed");
 
         //4. Assert Username is loggined
         assertTrue(isUsernameDisplayed());
