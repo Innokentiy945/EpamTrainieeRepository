@@ -29,7 +29,7 @@
                 <activeByDefault>false</activeByDefault>
             </activation>
             <properties>
-                <suite.xml>src/test/resources/hw2/FunctionalTest1.xml</suite.xml>
+                <suite.xml>${project.basedir}/src/test/resources/FunctionalTest1.xml</suite.xml>
             </properties>
         </profile>
 
@@ -39,7 +39,7 @@
                 <activeByDefault>false</activeByDefault>
             </activation>
             <properties>
-                <suite.xml>src/test/resources/hw2/FunctionalTest2.xml</suite.xml>
+                <suite.xml>${project.basedir}/src/test/resources/FunctionalTest2.xml</suite.xml>
             </properties>
         </profile>
     </profiles>
@@ -64,7 +64,6 @@
             <version>${webdrivermanager.version}</version>
             <scope>test</scope>
         </dependency>
-
     </dependencies>
 
 
