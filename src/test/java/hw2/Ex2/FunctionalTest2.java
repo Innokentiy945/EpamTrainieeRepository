@@ -82,7 +82,7 @@ public class FunctionalTest2 extends BaseTest {
         WebElement windLog = driver.findElement(By.xpath("//li[2]"));
         assertTrue(windLog.isDisplayed());
 
-        WebElement selenLog = driver.findElement(By.xpath("//[3]"));
+        WebElement selenLog = driver.findElement(By.xpath("//li[3]"));
         assertTrue(selenLog.isDisplayed());
 
         WebElement dropDownLog = driver.findElement(By.xpath("//li[4]"));
