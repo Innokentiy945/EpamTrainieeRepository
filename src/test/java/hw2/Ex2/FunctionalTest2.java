@@ -86,7 +86,7 @@ public class FunctionalTest2 extends BaseTest {
         assertTrue(selenLog.isDisplayed());
 
         WebElement dropDownLog = driver.findElement(By.xpath("//li[4]"));
-        assertTrue(dropDownLog.isDisplayed());
+        assertFalse(dropDownLog.isDisplayed());
 
         System.out.println("Step passed: log for all elements exist");
     }
