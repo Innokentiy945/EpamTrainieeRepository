@@ -74,18 +74,18 @@ public class FunctionalTest2 extends BaseTest {
         System.out.println("Step passed: element is selected");
 
 
-        //9.Assert that
+        ///9.Assert that
         //for each checkbox,radiobutton, dropbox there are an individual log row and value is corresponded to the status of checkbox
-        WebElement waterLog = driver.findElement(By.xpath("//li[contains(text(),'Water: condition changed to true')]"));
+        WebElement waterLog = driver.findElement(By.xpath("//li[1]"));
         assertTrue(waterLog.isDisplayed());
 
-        WebElement windLog = driver.findElement(By.xpath("//li[contains(text(),'Wind: condition changed to true')]"));
+        WebElement windLog = driver.findElement(By.xpath("//li[2]"));
         assertTrue(windLog.isDisplayed());
 
-        WebElement selenLog = driver.findElement(By.xpath("//li[contains(text(),'metal: value changed to  Selen')]"));
+        WebElement selenLog = driver.findElement(By.xpath("//[3]"));
         assertTrue(selenLog.isDisplayed());
 
-        WebElement dropDownLog = driver.findElement(By.xpath("//li[contains(text(),'Colors: value changed to Yellow')]"));
+        WebElement dropDownLog = driver.findElement(By.xpath("//li[4]"));
         assertTrue(dropDownLog.isDisplayed());
 
         System.out.println("Step passed: log for all elements exist");
