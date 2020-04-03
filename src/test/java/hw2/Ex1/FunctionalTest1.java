@@ -74,7 +74,7 @@ public class FunctionalTest1 extends BaseTest {
 
         //9. Switch to the iframe and check that there is “Frame Button” in the iframe
         driver.switchTo().frame("frame");
-        softAssert.assertTrue(driver.findElement(By.id("button-frame")).isDisplayed());
+        softAssert.assertTrue(!driver.findElement(By.id("button-frame")).isDisplayed());
         System.out.println("Step passed: the “Frame Button” exists");
 
 
@@ -94,3 +94,4 @@ public class FunctionalTest1 extends BaseTest {
     }
 
 }
+
