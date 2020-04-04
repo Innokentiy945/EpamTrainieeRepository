@@ -1,0 +1,9 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+
+<suite name="Functional test 1" verbose="1" >
+    <test name="Functional test 1"   >
+        <packages>
+            <package name="hw3.Ex2"></package>
+        </packages>
+    </test>
+</suite>
