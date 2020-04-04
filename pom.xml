@@ -14,56 +14,32 @@
 
         <testng.version>7.1.0</testng.version>
 
+        <selenium.version>3.141.59</selenium.version>
+        <webdrivermanager.version>3.8.1</webdrivermanager.version>
+
         <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
         <maven-surefire-plugin.version>2.22.2</maven-surefire-plugin.version>
     </properties>
 
     <profiles>
-        <profile>
-            <id>AdditionSubtraction</id>
-            <activation>
-                <activeByDefault>true</activeByDefault>
-            </activation>
-            <properties>
-                <suite.xml>
-                    ${basedir}/src/test/resources/hw1/AdditionSubtractionTestSuit.xml
-                </suite.xml>
-            </properties>
-        </profile>
 
         <profile>
-            <id>MultiplicationDivision</id>
+            <id>FunctionalTest1</id>
             <activation>
                 <activeByDefault>false</activeByDefault>
             </activation>
             <properties>
-                <suite.xml>
-                    ${basedir}/src/test/resources/hw1/MultiplicationDivisionTestSuit.xml
-                </suite.xml>
+                <suite.xml>${project.basedir}/src/test/resources/hw3/Suits/FunctionalTest1.xml</suite.xml>
             </properties>
         </profile>
 
         <profile>
-            <id>Trigonometry</id>
+            <id>FunctionalTest2</id>
             <activation>
                 <activeByDefault>false</activeByDefault>
             </activation>
             <properties>
-                <suite.xml>
-                    ${basedir}/src/test/resources/hw1/TrigonometryTestSuit.xml
-                </suite.xml>
-            </properties>
-        </profile>
-
-        <profile>
-            <id>AllTests</id>
-            <activation>
-                <activeByDefault>false</activeByDefault>
-            </activation>
-            <properties>
-                <suite.xml>
-                    ${basedir}/src/test/resources/hw1/AllTestSuit.xml
-                </suite.xml>
+                <suite.xml>${project.basedir}/src/test/resources/hw3/Suits/FunctionalTest2.xml</suite.xml>
             </properties>
         </profile>
     </profiles>
@@ -77,13 +53,27 @@
             <version>${testng.version}</version>
             <scope>test</scope>
         </dependency>
-
         <dependency>
-            <groupId>com.epam</groupId>
-            <artifactId>calculator</artifactId>
-            <version>1.0</version>
-            <scope>system</scope>
-            <systemPath>${project.basedir}/src/test/resources/hw1/CalculatorFile/calculator-1.0.jar</systemPath>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-java</artifactId>
+            <version>${selenium.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.github.bonigarcia</groupId>
+            <artifactId>webdrivermanager</artifactId>
+            <version>${webdrivermanager.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.github.bonigarcia</groupId>
+            <artifactId>webdrivermanager</artifactId>
+            <version>3.8.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.testng</groupId>
+            <artifactId>testng</artifactId>
+            <version>7.1.0</version>
+            <scope>compile</scope>
         </dependency>
 
     </dependencies>
@@ -92,13 +82,6 @@
 
 
     <build>
-
-        <resources>
-            <resource>
-                <directory>${basedir}/test/resources</directory>
-            </resource>
-        </resources>
-
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -116,9 +99,7 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>${maven-surefire-plugin.version}</version>
                 <configuration>
-                    <suiteXmlFiles>
-                        <suiteXmlFiles>${suite.xml}</suiteXmlFiles>
-                    </suiteXmlFiles>
+                    <suiteXmlFiles>${suite.xml}</suiteXmlFiles>
                 </configuration>
             </plugin>
         </plugins>
