@@ -1,80 +1,91 @@
 package hw3.Pages;
 
+import hw3.Composite.*;
 import org.openqa.selenium.WebDriver;
 
 import java.util.List;
 
 public class HomePage extends AbstractPage {
 
+    private BenefitsItems benefitsItems;
+    private Frame frame;
+    private LeftMenu leftMenu;
+    private HeaderMenu headerMenu;
+
 
 
     public HomePage(WebDriver driver) {
         super(driver);
+        headerMenu = new HeaderMenu(driver);
+        benefitsItems = new BenefitsItems(driver);
+        frame = new Frame(driver);
+        leftMenu = new LeftMenu(driver);
     }
 
     public void logInOperation(String user, String password) {
-        headerMenuComposite.loginOperation(user, password);
+        headerMenu.loginOperation(user, password);
     }
 
     public String getNameOfUser() {
-        return headerMenuComposite.getUserName();
+        return headerMenu.getUserName();
     }
 
     public boolean isUserNameDisplayed() {
-        return headerMenuComposite.isUserNameDisplayed();
+        return headerMenu.isUserNameDisplayed();
     }
 
     public List<String> getHeaderMenuElements() {
-        return headerMenuComposite.getHeaderMenuElementsText();
+        return headerMenu.getHeaderMenuElementsText();
     }
 
     public boolean isHeaderItemsDisplayed() {
-       return headerMenuComposite.isHeaderMenuItemsDisplayed();
+       return headerMenu.isHeaderMenuItemsDisplayed();
     }
 
+    public int countHeaderMenuItems() {return headerMenu.countHeaderMenuItems();}
 
     public int countBenefitImages() {
-        return benefitsItemComposite.benefitImagesCount();
+        return benefitsItems.benefitImagesCount();
     }
 
     public int countTxtBenefit() {
-        return benefitsItemComposite.benefitTextsCount();
+        return benefitsItems.benefitTextsCount();
     }
 
     public boolean isBenefitsDisplayed() {
-        return benefitsItemComposite.isBenefitIconsDisplayed();
+        return benefitsItems.isBenefitIconsDisplayed();
     }
 
     public void switchToFrame() {
-        framePageComposite.switchToFrame();
+        frame.switchToFrame();
     }
 
     public void switchToPreviousPage() {
-        framePageComposite.switchToDefaultWindow();
+        frame.switchToDefaultWindow();
     }
 
     public boolean isFrameButtonDisplayed() {
-        return framePageComposite.isFrameButtonDisplayed();
+        return frame.isFrameButtonDisplayed();
     }
 
     public boolean isFrameDisplayed() {
-        return framePageComposite.isFrameDisplayed();
+        return frame.isFrameDisplayed();
     }
 
     public boolean leftCestionMenuisDisplayed() {
-        return leftSectionOfPageComposite.leftSectionMenuIsDisplayed();
+        return leftMenu.leftSectionMenuIsDisplayed();
     }
 
     public List<String> leftSectionMenuText() {
-        return leftSectionOfPageComposite.leftSectionMenuText();
+        return leftMenu.leftSectionMenuText();
     }
 
     public int counItemsInLefSectionMenu() {
-        return leftSectionOfPageComposite.countLeftSectionMenu();
+        return leftMenu.countLeftSectionMenu();
     }
 
     public void goToDifferentPage() {
-        headerMenuComposite.goToDifferentElementPage();
+        headerMenu.goToDifferentElementPage();
     }
 
 }
