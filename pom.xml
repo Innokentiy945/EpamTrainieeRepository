@@ -8,7 +8,7 @@
     <artifactId>InnokentiiObraztcov</artifactId>
     <version>1.0-SNAPSHOT</version>
 
-    <properties>
+     <properties>
         <java.source.version>1.8</java.source.version>
         <java.target.version>1.8</java.target.version>
 
@@ -21,9 +21,10 @@
         <maven-surefire-plugin.version>2.22.2</maven-surefire-plugin.version>
     </properties>
 
-    <profiles>
 
-        <profile>
+    <profiles>
+      
+         <profile>
             <id>FunctionalTest1</id>
             <activation>
                 <activeByDefault>false</activeByDefault>
@@ -40,6 +41,54 @@
             </activation>
             <properties>
                 <suite.xml>${project.basedir}/src/test/resources/FunctionalTest2.xml</suite.xml>
+            </properties>
+        </profile>
+      
+        <profile>
+            <id>AdditionSubtraction</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <suite.xml>
+                    ${basedir}/src/test/resources/hw1/AdditionSubtractionTestSuit.xml
+                </suite.xml>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>MultiplicationDivision</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <properties>
+                <suite.xml>
+                    ${basedir}/src/test/resources/hw1/MultiplicationDivisionTestSuit.xml
+                </suite.xml>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>Trigonometry</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <properties>
+                <suite.xml>
+                    ${basedir}/src/test/resources/hw1/TrigonometryTestSuit.xml
+                </suite.xml>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>AllTests</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <properties>
+                <suite.xml>
+                    ${basedir}/src/test/resources/hw1/AllTestSuit.xml
+                </suite.xml>
             </properties>
         </profile>
     </profiles>
@@ -64,12 +113,28 @@
             <version>${webdrivermanager.version}</version>
             <scope>test</scope>
         </dependency>
+
+        <dependency>
+            <groupId>com.epam</groupId>
+            <artifactId>calculator</artifactId>
+            <version>1.0</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/src/test/resources/hw1/CalculatorFile/calculator-1.0.jar</systemPath>
+        </dependency>
+
     </dependencies>
 
 
 
 
     <build>
+
+        <resources>
+            <resource>
+                <directory>${basedir}/test/resources</directory>
+            </resource>
+        </resources>
+
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -87,9 +152,12 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>${maven-surefire-plugin.version}</version>
                 <configuration>
-                    <suiteXmlFiles>${suite.xml}</suiteXmlFiles>
+                    <suiteXmlFiles>
+                        <suiteXmlFiles>${suite.xml}</suiteXmlFiles>
+                    </suiteXmlFiles>
                 </configuration>
             </plugin>
         </plugins>
     </build>
 </project>
+
