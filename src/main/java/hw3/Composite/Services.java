@@ -50,28 +50,12 @@ public class Services extends AbstractPageComposite{
         Select select = new Select(colorsDropdown);
         select.selectByVisibleText(color);
     }
-
-
-
-    public boolean isCheckBoxIsDisplayedInLog(String elementName, String status) {
+    
+    public boolean isElementInLogDisplayed(List<String> logString) {
         waitForLogsToBeVisible();
         boolean isDisplayed = false;
         for (WebElement log : logs) {
-            if (log.getText().contains(elementName + ": condition changed to " + status)) {
-                isDisplayed = true;
-            }
-        }
-        return isDisplayed;
-    }
-
-    public boolean isRadioAndColorLogDisplayed(String radioName, String dropdownValue) {
-        waitForLogsToBeVisible();
-        boolean isDisplayed = false;
-        for (WebElement log : logs) {
-            if (log.getText().contains("metal: value changed to " + radioName)) {
-                isDisplayed = true;
-            }
-            else if (log.getText().contains("Colors: value changed to " + dropdownValue)) {
+            if (log.getText().contains(": condition changed to " + logString)) {
                 isDisplayed = true;
             }
         }
