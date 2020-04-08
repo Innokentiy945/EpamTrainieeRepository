@@ -37,10 +37,10 @@ public class Services extends AbstractPageComposite{
         }
     }
 
-    public void defineRadio(String checkboxName) {
+    public void defineRadio(String radioButtonName) {
         wait.until(ExpectedConditions.visibilityOfAllElements(radioElements));
         for (WebElement radioElements : radioElements) {
-            if(!radioElements.isSelected() &radioElements.getText().equals(checkboxName))
+            if(!radioElements.isSelected() &radioElements.getText().equals(radioButtonName))
                 radioElements.click();
         }
     }
