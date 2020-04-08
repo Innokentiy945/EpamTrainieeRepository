@@ -4,6 +4,8 @@ package hw3.Pages;
 import hw3.Composite.Services;
 import org.openqa.selenium.WebDriver;
 
+import java.util.List;
+
 
 public class DifferentElementPage extends AbstractPage {
 
@@ -15,24 +17,16 @@ public class DifferentElementPage extends AbstractPage {
         services = new Services(driver);
     }
 
-    public void defineCheckBox(String checkboxName) {
-        services.defineCheckBox(checkboxName);
-    }
-
-    public void defineRadio(String checkboxName) {
-        services.defineRadio(checkboxName);
+    public void defineButtonElements(List<String> checkBoxName) {
+        services.defineButtonElements(checkBoxName);
     }
 
     public void defineColorDropDown(String color) {
         services.defineColorDropDown(color);
     }
 
-    public boolean isElementIsDisplayedInLog(String elementName, String status) {
-        return services.isCheckBoxIsDisplayedInLog(elementName, status);
-    }
-
-    public boolean isRadioAndColorLogDisplayed(String radioName, String dropdownValue) {
-        return services.isRadioAndColorLogDisplayed(radioName, dropdownValue);
+    public boolean isElementInLogDisplayed(List<String> logString) {
+        return services.isElementInLogDisplayed(logString);
     }
 
 }
