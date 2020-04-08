@@ -13,7 +13,7 @@ import java.util.stream.Collectors;
 
 public class HeaderMenu extends AbstractPageComposite {
 
-    public HeaderMenu(WebDriver driver) {
+    public headerMenu(WebDriver driver) {
         super(driver);
     }
 
