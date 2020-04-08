@@ -18,39 +18,31 @@ public class Services extends AbstractPageComposite{
     @FindBy(css = ".logs li")
     private List<WebElement> logs;
 
+
     @FindBy(css = ".colors select")
     private WebElement colorsDropdown;
 
-    @FindBy(className = "label-radio")
-    private List<WebElement> radioElements;
 
-    @FindBy(className = "label-checkbox")
+    @FindBy(className = "checkbox-row")
     private List<WebElement> checkBoxElements;
 
 
 
-    public void defineCheckBox(String checkboxName) {
-        wait.until(ExpectedConditions.visibilityOfAllElements(checkBoxElements));
+    public void defineButtonElements(List<String> checkBoxName){
         for (WebElement checkBoxElement : checkBoxElements) {
-            if(!checkBoxElement.isSelected() & checkBoxElement.getText().equals(checkboxName))
+            if(!checkBoxElement.isSelected() & checkBoxElement.getText().equals(checkBoxName))
                 checkBoxElement.click();
         }
     }
 
-    public void defineRadio(String radioButtonName) {
-        wait.until(ExpectedConditions.visibilityOfAllElements(radioElements));
-        for (WebElement radioElements : radioElements) {
-            if(!radioElements.isSelected() &radioElements.getText().equals(radioButtonName))
-                radioElements.click();
-        }
-    }
 
     public void defineColorDropDown(String color) {
         colorsDropdown = wait.until(ExpectedConditions.visibilityOf(colorsDropdown));
         Select select = new Select(colorsDropdown);
         select.selectByVisibleText(color);
     }
-    
+
+
     public boolean isElementInLogDisplayed(List<String> logString) {
         waitForLogsToBeVisible();
         boolean isDisplayed = false;
@@ -63,11 +55,8 @@ public class Services extends AbstractPageComposite{
     }
 
 
+
     private void waitForLogsToBeVisible(){
         wait.until(ExpectedConditions.visibilityOfAllElements(logs));
     }
 }
-
-
-
-
