@@ -36,12 +36,8 @@ public class FunctionalTest2 extends TestBase {
 
 
         //9. Assert individual log
-        //9.1 Assert checkbox log
-        assertTrue(differentElementPage.isElementIsDisplayedInLog(checkBoxOne, "true"));
-        assertTrue(differentElementPage.isElementIsDisplayedInLog(checkBoxTwo, "true"));
-
-        //9.2 Assert radio button and color log
-        assertTrue(differentElementPage.isRadioAndColorLogDisplayed(radio, color));
+        List<String> logs = Arrays.asList("Wind", "Water", "Selen", "Yellow");
+        differentElementPage.isElementInLogDisplayed(logs);
 
     }
 }
