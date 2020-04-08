@@ -6,7 +6,9 @@ import hw3.Pages.DifferentElementPage;
 import org.testng.annotations.Test;
 
 
-import static org.testng.Assert.assertTrue;
+import java.util.Arrays;
+import java.util.List;
+
 
 public class FunctionalTest2 extends TestBase {
 
@@ -14,21 +16,15 @@ public class FunctionalTest2 extends TestBase {
     public void FunctionalTest2(){
         HomePage homePage = new HomePage(driver);
         DifferentElementPage differentElementPage = new DifferentElementPage(driver);
-        StandartOperations();
+        standartOperations();
 
         //5.Open through the header menu Service -> Different Elements Page
         homePage.goToDifferentPage();
 
-        //6. Select checkboxes "Water", "Wind"
-        String checkBoxOne = "Water";
-        String checkBoxTwo = "Wind";
+        //6. Select checkboxes "Water", "Wind" + 7. Select radio "Selen"
+        List<String> checkboxes = Arrays.asList("Water", "Wind", "Selen");
+        differentElementPage.defineButtonElements(checkboxes);
 
-        differentElementPage.defineCheckBox(checkBoxOne);
-        differentElementPage.defineCheckBox(checkBoxTwo);
-
-        //7. Select radio "Selen"
-        String radio = "Selen";
-        differentElementPage.defineRadio(radio);
 
         //8.Select in dropdown "Yellow"
         String color = "Yellow";
