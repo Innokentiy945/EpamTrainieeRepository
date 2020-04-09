@@ -27,7 +27,7 @@ public class TestBase {
 
 
 
-    public void StandartOperations() {
+    public void standartOperations() {
         HomePage homePage = new HomePage(driver);
 
         //1. Open url

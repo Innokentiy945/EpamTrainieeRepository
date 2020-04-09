@@ -26,6 +26,16 @@ public abstract class AbstractPageComposite {
         PageFactory.initElements(driver, this);
     }
 
+
+    public boolean leftSectionMenuIsDisplayed(){
+        waitForleftSectionMenuToBeVisible();
+        boolean isDisplayed = false;
+        for (WebElement element : leftSectionMenuItems) {
+            isDisplayed = element.isDisplayed();
+        }
+        return isDisplayed;
+    }
+
     protected void waitForleftSectionMenuToBeVisible(){
         wait.until(ExpectedConditions.visibilityOfAllElements(leftSectionMenuItems));
     }

@@ -19,17 +19,9 @@ public class LeftMenu extends AbstractPageComposite {
     private List<WebElement> leftSectionMenuItems;
 
 
-    public boolean leftSectionMenuIsDisplayed(){
-        waitForleftSectionMenuToBeVisible();
-        boolean isDisplayed = false;
-        for (WebElement element : leftSectionMenuItems) {
-            isDisplayed = element.isDisplayed();
-        }
-        return isDisplayed;
-    }
-
     public List<String> leftSectionMenuText(){
         waitForleftSectionMenuToBeVisible();
+
         return leftSectionMenuItems.stream().map(WebElement::getText).collect(Collectors.toList());
     }
 

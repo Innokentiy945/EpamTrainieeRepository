@@ -7,17 +7,17 @@ import java.util.List;
 
 public class HomePage extends AbstractPage {
 
-    private BenefitsItems benefitsItems;
-    private Frame frame;
-    private LeftMenu leftMenu;
-    private HeaderMenu headerMenu;
+    protected Benefits benefits;
+    protected Frame frame;
+    protected LeftMenu leftMenu;
+    protected HeaderMenu headerMenu;
 
 
 
     public HomePage(WebDriver driver) {
         super(driver);
         headerMenu = new HeaderMenu(driver);
-        benefitsItems = new BenefitsItems(driver);
+        benefits = new Benefits(driver);
         frame = new Frame(driver);
         leftMenu = new LeftMenu(driver);
     }
@@ -45,15 +45,15 @@ public class HomePage extends AbstractPage {
     public int countHeaderMenuItems() {return headerMenu.countHeaderMenuItems();}
 
     public int countBenefitImages() {
-        return benefitsItems.benefitImagesCount();
+        return benefits.benefitImagesCount();
     }
 
     public int countTxtBenefit() {
-        return benefitsItems.benefitTextsCount();
+        return benefits.benefitTextsCount();
     }
 
     public boolean isBenefitsDisplayed() {
-        return benefitsItems.isBenefitIconsDisplayed();
+        return benefits.isBenefitIconsDisplayed();
     }
 
     public void switchToFrame() {

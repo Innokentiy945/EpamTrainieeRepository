@@ -47,7 +47,7 @@ public class Services extends AbstractPageComposite{
         waitForLogsToBeVisible();
         boolean isDisplayed = false;
         for (WebElement log : logs) {
-            if (log.getText().contains(": condition changed to " + logString)) {
+            if (log.getText().contains("condition changed to " + logString)) {
                 isDisplayed = true;
             }
         }
@@ -60,3 +60,7 @@ public class Services extends AbstractPageComposite{
         wait.until(ExpectedConditions.visibilityOfAllElements(logs));
     }
 }
+
+
+
+

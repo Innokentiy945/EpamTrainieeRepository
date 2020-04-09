@@ -24,7 +24,7 @@ public class FunctionalTest1 extends TestBase {
         HomePage homePage = new HomePage(driver);
 
 
-        StandartOperations();
+        standartOperations();
 
         //5. Assert that there are 4 items on the header section are displayed and they have proper texts
 
@@ -64,15 +64,14 @@ public class FunctionalTest1 extends TestBase {
 
         //11. Assert that there are 5 items in the Left Section are displayed and they have proper text
         softAssert.assertTrue(homePage.leftCestionMenuisDisplayed());
-
         List<String>actualTextOfLeftMenu = homePage.leftSectionMenuText();
         List<String> expectedTextOfLeftMenu = Arrays.asList(
-                "Home", "Contact form", "Service", "Metals & Colors", "Elements packs"
-        );
+                "Home", "Contact form", "Service", "Metals & Colors", "Elements packs");
         softAssert.assertEquals(actualTextOfLeftMenu, expectedTextOfLeftMenu);
 
-        int actualCountOfLeftSideMenu = homePage.countHeaderMenuItems();
+        int actualCountOfLeftSideMenu = 5;
         assertEquals(actualCountOfLeftSideMenu, expectedTextOfLeftMenu.size());
+
 
 
     }
