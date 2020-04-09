@@ -10,7 +10,7 @@ import java.util.stream.Collectors;
 
 public class BenefitsItems extends AbstractPageComposite {
 
-    public BenefitsItems(WebDriver driver) {
+    public Benefits(WebDriver driver) {
         super(driver);
     }
 
