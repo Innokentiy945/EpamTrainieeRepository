@@ -10,15 +10,16 @@ import java.util.stream.Collectors;
 
 public class Benefits extends AbstractPageComposite {
 
-    public Benefits(WebDriver driver) {
-        super(driver);
-    }
 
     @FindBy(className = "benefit-icon")
     private List<WebElement> benefitIcons;
 
     @FindBy(className = "benefit-txt")
     private List<WebElement> benefitIconsTexts;
+
+    public Benefits(WebDriver driver) {
+        super(driver);
+    }
 
     public int benefitImagesCount(){
         return wait.until(ExpectedConditions.visibilityOfAllElements(benefitIcons)).size();
