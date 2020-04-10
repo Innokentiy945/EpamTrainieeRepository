@@ -8,7 +8,7 @@ import org.openqa.selenium.WebDriver;
 import java.util.Arrays;
 import java.util.List;
 
-import static org.testng.Assert.assertEquals;
+
 
 public class DifferentElementPageSteps extends HomePageSteps{
 
