@@ -52,6 +52,7 @@ public class HomePageSteps {
         homePage.isUserNameDisplayed();
     }
 
+
     @Step("Verifying header menu text")
     public void verifyingHeaderMenuText() {
         List<String> actualTextOfHeaderMenuItems = homePage.getHeaderMenuElements();
@@ -107,6 +108,12 @@ public class HomePageSteps {
     }
 
 
+    @Step("Incorrect number of items in left menu for failed test")
+    public void incorrectNumberOfItems() {
+        int actualCountOfLeftSideMenu = 5;
+        List<String> expectedTextOfLeftMenu = Arrays.asList("Home", "Contact form", "Service", "Metals & Colors", "Elements packs", "Other element");
+        assertEquals(actualCountOfLeftSideMenu, expectedTextOfLeftMenu.size());
+    }
 
 
 
