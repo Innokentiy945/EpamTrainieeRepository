@@ -11,7 +11,6 @@ public class TestBase {
 
     protected WebDriver driver;
 
-
     @BeforeMethod
     public void setUp() {
         WebDriverManager.chromedriver().setup();
@@ -19,6 +18,7 @@ public class TestBase {
         driver = WebDriverSingleton.INSTANCE.getDriver();
         driver.manage().window().maximize();
     }
+
 
     public void standartOperations() throws InterruptedException {
 
