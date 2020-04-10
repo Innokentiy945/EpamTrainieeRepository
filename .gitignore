@@ -6,7 +6,6 @@
 # Maven
 target/
 
-.jar
 
 #Allure
 **/allure-results
