@@ -35,7 +35,7 @@
                 <activeByDefault>false</activeByDefault>
             </activation>
             <properties>
-                <suite.xml>${project.basedir}/src/test/resources/hw5/Suits/FunctionalTests.xml</suite.xml>
+                <suiteXmlFiles>${project.basedir}/src/test/resources/hw5/Suits/FunctionalTests.xml</suiteXmlFiles>
             </properties>
         </profile>
     </profiles>
