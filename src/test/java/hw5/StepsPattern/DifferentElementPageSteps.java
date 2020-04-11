@@ -10,19 +10,23 @@ import java.util.List;
 
 
 
-public class DifferentElementPageSteps extends HomePageSteps{
+
+public class DifferentElementPageSteps{
+
 
     protected WebDriver driver;
+    protected HomePage homePage;
+    protected DifferentElementPage differentElementPage;
 
-    HomePage homePage = new HomePage(driver);
-    DifferentElementPage differentElementPage = new DifferentElementPage(driver);
+
 
 
 
     public DifferentElementPageSteps(WebDriver driver) throws InterruptedException {
-        super(driver);
+        this.driver = driver;
+        homePage = new HomePage(driver);
+        differentElementPage = new DifferentElementPage(driver);
     }
-
 
 
     @Step("Opening Different Elements Page")
