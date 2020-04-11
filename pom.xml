@@ -89,7 +89,7 @@
                 <version>${maven-surefire-plugin.version}</version>
                 <configuration>
                     <suiteXmlFiles>
-                        <suiteXmlFiles>${suite.xml}</suiteXmlFiles>
+                        <suiteXmlFiles>${suiteXmlFiles}</suiteXmlFiles>
                     </suiteXmlFiles>
                     <argLine>
                         -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
