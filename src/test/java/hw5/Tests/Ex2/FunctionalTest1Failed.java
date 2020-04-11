@@ -1,7 +1,6 @@
-package hw5.Tests.Ex1;
+package hw5.Tests.Ex2;
 
 
-import hw5.Pages.HomePage;
 import hw5.StepsPattern.HomePageSteps;
 import hw5.Tests.TestBase.TestBase;
 import hw5.utils.AllureScreenshotListener;
@@ -10,8 +9,9 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
+
 @Listeners(AllureScreenshotListener.class)
-public class FunctionalTest1 extends TestBase {
+public class FunctionalTest1Failed extends TestBase {
 
     protected HomePageSteps homePageSteps;
 
@@ -37,6 +37,7 @@ public class FunctionalTest1 extends TestBase {
         homePageSteps.verifyingItemsInLeftMenu();
         homePageSteps.veryfyingNamesOfItems();
         homePageSteps.verifyingNumbersOfItems();
+        homePageSteps.incorrectNumberOfItems();
 
     }
 }
