@@ -35,7 +35,7 @@
                 <activeByDefault>false</activeByDefault>
             </activation>
             <properties>
-                <suiteXmlFiles>${project.basedir}/src/test/resources/hw5/Suits/FunctionalTests.xml</suiteXmlFiles>
+                <suite.xml>${project.basedir}/src/test/resources/hw5/Suits/FunctionalTests.xml</suite.xml>
             </properties>
         </profile>
     </profiles>
@@ -89,7 +89,7 @@
                 <version>${maven-surefire-plugin.version}</version>
                 <configuration>
                     <suiteXmlFiles>
-                        <suiteXmlFiles>${suiteXmlFiles}</suiteXmlFiles>
+                        <xmlFile>${suite.xml}</xmlFile>
                     </suiteXmlFiles>
                     <argLine>
                         -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
