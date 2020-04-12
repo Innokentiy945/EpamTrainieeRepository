@@ -28,9 +28,17 @@
     </properties>
 
     <profiles>
-
         <profile>
-            <id>AllTests</id>
+            <id>Successful tests</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <suite.xml>${project.basedir}/src/test/resources/hw5/Suits/FunctionalTests.xml</suite.xml>
+            </properties>
+        </profile>
+        <profile>
+            <id>Failed test</id>
             <activation>
                 <activeByDefault>true</activeByDefault>
             </activation>
@@ -89,7 +97,7 @@
                 <version>${maven-surefire-plugin.version}</version>
                 <configuration>
                     <suiteXmlFiles>
-                        <suiteXmlFile>${suite.xml}</suiteXmlFile>
+                        ${suite.xml}
                     </suiteXmlFiles>
                     <argLine>
                         -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
