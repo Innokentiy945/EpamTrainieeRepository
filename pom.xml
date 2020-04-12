@@ -14,48 +14,35 @@
 
         <testng.version>7.1.0</testng.version>
 
+        <selenium.version>3.141.59</selenium.version>
+        <webdrivermanager.version>3.8.1</webdrivermanager.version>
+
         <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
         <maven-surefire-plugin.version>2.22.2</maven-surefire-plugin.version>
     </properties>
 
+
     <profiles>
         <profile>
-            <id>SumSub</id>
+            <id>PageObjectFunctionalTest1</id>
             <activation>
                 <activeByDefault>false</activeByDefault>
             </activation>
             <properties>
-                <suite.xml>SumSubTestSuit.xml</suite.xml>
+                <suite.xml>${project.basedir}/src/test/resources/hw4/Suits/PageObjectFunctionalTest1.xml</suite.xml>
             </properties>
         </profile>
+
         <profile>
-            <id>DivMulti</id>
+            <id>BuilderFunctionalTest2</id>
             <activation>
                 <activeByDefault>false</activeByDefault>
             </activation>
             <properties>
-                <suite.xml>DivMultiTestsSuit.xml</suite.xml>
-            </properties>
-        </profile>
-        <profile>
-            <id>All</id>
-            <activation>
-                <activeByDefault>false</activeByDefault>
-            </activation>
-            <properties>
-                <suite.xml>src/test/resources/TestSuites/AllTestSuit.xml</suite.xml>
+                <suite.xml>${project.basedir}/src/test/resources/hw4/Suits/BuilderFunctionalTest2</suite.xml>
             </properties>
         </profile>
     </profiles>
-
-
-    <!--<repositories>
-        <repository>
-            <id>project-local-repo</id>
-            <url>file://${project.basedir}.m2/repository</url>
-        </repository>
-    </repositories>-->
-
 
 
     <dependencies>
@@ -65,13 +52,25 @@
             <version>${testng.version}</version>
             <scope>test</scope>
         </dependency>
-
         <dependency>
-            <groupId>com.epam</groupId>
-            <artifactId>calculator</artifactId>
-            <version>1.0</version>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-java</artifactId>
+            <version>${selenium.version}</version>
         </dependency>
-        <!--C:/Users/Kesha/.m2/repository/EpamHomeWork/calculator-1.0.jar-->
+        <dependency>
+            <groupId>io.github.bonigarcia</groupId>
+            <artifactId>webdrivermanager</artifactId>
+            <version>${webdrivermanager.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.assertj/assertj-core -->
+        <dependency>
+            <groupId>org.assertj</groupId>
+            <artifactId>assertj-core</artifactId>
+            <version>3.15.0</version>
+            <scope>test</scope>
+        </dependency>
+
 
     </dependencies>
 
@@ -97,14 +96,10 @@
                 <version>${maven-surefire-plugin.version}</version>
                 <configuration>
                     <suiteXmlFiles>
-                        <suiteXmlFiles>C:\Users\Kesha\IdeaProjects\InnokentiiObraztcov\src\test\java\resources\SumSubTestSuit.xml</suiteXmlFiles>
-                        <suiteXmlFiles>C:\Users\Kesha\IdeaProjects\InnokentiiObraztcov\src\test\java\resources\DivMultiTestsSuit.xml</suiteXmlFiles>
+                        ${suite.xml}
                     </suiteXmlFiles>
-                    <!--<useFile>false</useFile>-->
                 </configuration>
             </plugin>
         </plugins>
     </build>
 </project>
-
-

@@ -1,0 +1,10 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="Page Object functional test 1 suite">
+
+    <test name="Homework 4 test">
+        <packages>
+            <package name="hw4.Ex2"></package>
+        </packages>
+    </test>
+</suite>
+
