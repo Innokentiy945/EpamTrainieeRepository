@@ -13,8 +13,6 @@ import org.testng.TestListenerAdapter;
 public class AllureScreenshotListener extends TestListenerAdapter {
 
 
-    protected WebDriver driver;
-
     @Attachment(value = "screenshot", type = "image/png", fileExtension = ".png")
     private OutputType<byte[]> takeScreenshot() {
         byte[] array = {1};
