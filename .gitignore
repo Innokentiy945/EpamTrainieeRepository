@@ -1,7 +1,10 @@
 # Created by .ignore support plugin (hsz.mobi)
-.idea
-**/target
-.iml
+### Example user template template
+### Example user template
 
-maven-repository/
-/.idea/
+# IntelliJ project files
+.idea
+*.iml
+
+
+
