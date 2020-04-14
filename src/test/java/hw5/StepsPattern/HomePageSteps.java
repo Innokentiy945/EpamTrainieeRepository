@@ -4,9 +4,6 @@ import hw5.Pages.HomePage;
 import hw5.TestData.PropertiesOpener;
 import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.annotations.Listeners;
-import org.testng.annotations.Test;
 
 import java.util.Arrays;
 import java.util.List;
@@ -72,12 +69,12 @@ public class HomePageSteps {
         assertTrue(homePage.isHeaderItemsDisplayed());
     }
 
-    @Step("Verifying the iframe with “Frame Button” exist")
+    @Step("Verifying the iframe with Frame Button exist")
     public void verifyingIframeExist() {
         assertTrue(homePage.isFrameDisplayed());
     }
 
-    @Step("Verifying that there is “Frame Button” in the iframe")
+    @Step("Verifying that there is Frame Button in the iframe")
     public void verifyingIframeButton() {
         homePage.switchToFrame();
         assertTrue(homePage.isFrameButtonDisplayed());
