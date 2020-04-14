@@ -11,7 +11,7 @@ import java.util.List;
 
 public class Services extends AbstractPageComposite{
 
-    public Services(WebDriver driver) {
+    public Services(WebDriver driver) throws InterruptedException {
         super(driver);
     }
 
