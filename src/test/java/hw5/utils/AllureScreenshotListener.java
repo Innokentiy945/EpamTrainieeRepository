@@ -11,7 +11,7 @@ import org.testng.TestListenerAdapter;
 public class AllureScreenshotListener extends TestListenerAdapter {
 
 
-    @Attachment(value = "screenshot", type = "image/png", fileExtension = ".png")
+    @Attachment(value = "screenshot", type = "image/png", fileExtension = "Bug.png")
     private byte[] takeScreenshot() {
         byte[] array = {1};
         try {
