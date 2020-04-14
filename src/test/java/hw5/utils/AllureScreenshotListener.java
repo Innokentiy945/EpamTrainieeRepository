@@ -2,7 +2,6 @@ package hw5.utils;
 
 
 import io.qameta.allure.Attachment;
-import org.openqa.selenium.OutputType;
 import org.openqa.selenium.WebDriverException;
 import org.testng.ITestResult;
 import org.testng.TestListenerAdapter;
@@ -16,13 +15,17 @@ public class AllureScreenshotListener extends TestListenerAdapter {
     private byte[] takeScreenshot() {
         byte[] array = {1};
         try {
-            return array;
+            return new byte[0];
         } catch (WebDriverException e) {
             e.printStackTrace();
         }
 
         return array;
     }
+
+
+
+
 
     @Override
     public void onTestSuccess(ITestResult tr) {
