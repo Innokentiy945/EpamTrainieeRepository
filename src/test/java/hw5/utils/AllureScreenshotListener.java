@@ -13,15 +13,15 @@ public class AllureScreenshotListener extends TestListenerAdapter {
 
 
     @Attachment(value = "screenshot", type = "image/png", fileExtension = ".png")
-    private OutputType<byte[]> takeScreenshot() {
-        //byte[] array = {1};
+    private byte[] takeScreenshot() {
+        byte[] array = {1};
         try {
-            return (OutputType.BYTES);
+            return array;
         } catch (WebDriverException e) {
             e.printStackTrace();
         }
 
-        return OutputType.BYTES;
+        return array;
     }
 
     @Override
