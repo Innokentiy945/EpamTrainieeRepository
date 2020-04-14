@@ -72,12 +72,12 @@ public class HomePageSteps {
         assertTrue(homePage.isHeaderItemsDisplayed());
     }
 
-    @Step("Verifying the iframe with “Frame Button” exist")
+    @Step("Verifying the iframe with Frame Button exist")
     public void verifyingIframeExist() {
         assertTrue(homePage.isFrameDisplayed());
     }
 
-    @Step("Verifying that there is “Frame Button” in the iframe")
+    @Step("Verifying that there is Frame Button in the iframe")
     public void verifyingIframeButton() {
         homePage.switchToFrame();
         assertTrue(homePage.isFrameButtonDisplayed());
