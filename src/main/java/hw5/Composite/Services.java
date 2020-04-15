@@ -11,43 +11,21 @@ import java.util.List;
 
 public class Services extends AbstractPageComposite{
 
-    public Services(WebDriver driver) throws InterruptedException {
-        super(driver);
-    }
+
 
     @FindBy(css = ".logs li")
     private List<WebElement> logs;
 
-
-    @FindBy(css = ".colors select")
-    private WebElement colorsDropdown;
-
-
-    @FindBy(className = "checkbox-row")
-    private List<WebElement> checkBoxElements;
-
-
-
-    public void defineButtonElements(List<String> checkBoxName){
-        for (WebElement checkBoxElement : checkBoxElements) {
-            if(!checkBoxElement.isSelected() & checkBoxElement.getText().equals(checkBoxName))
-                checkBoxElement.click();
-        }
+    public Services(WebDriver driver){
+        super(driver);
     }
 
 
-    public void defineColorDropDown(String color) {
-        colorsDropdown = wait.until(ExpectedConditions.visibilityOf(colorsDropdown));
-        Select select = new Select(colorsDropdown);
-        select.selectByVisibleText(color);
-    }
-
-
-    public boolean isElementInLogDisplayed(List<String> logString) {
+    public boolean isCheckboxLogDisplayed(String checkboxName, String status) {
         waitForLogsToBeVisible();
         boolean isDisplayed = false;
         for (WebElement log : logs) {
-            if (log.getText().contains("condition changed to " + logString)) {
+            if (log.getText().contains(checkboxName + ": condition changed to " + status)) {
                 isDisplayed = true;
             }
         }
@@ -55,10 +33,31 @@ public class Services extends AbstractPageComposite{
     }
 
 
+    public boolean isRadioLogDisplayed(String radioName) {
+        waitForLogsToBeVisible();
+        return isWebElementLogDisplayed(radioName, "metal: value changed to ");
+    }
+
+    public boolean isDropdownLogDisplayed(String dropdownValue) {
+        waitForLogsToBeVisible();
+        return isWebElementLogDisplayed(dropdownValue, "Colors: value changed to ");
+    }
+
+    public boolean isWebElementLogDisplayed(String value, String logText) {
+        waitForLogsToBeVisible();
+        boolean isDisplayed = false;
+        for (WebElement log : logs) {
+            if (log.getText().contains(logText + value)) {
+                isDisplayed = true;
+            }
+        }
+        return isDisplayed;
+    }
 
     private void waitForLogsToBeVisible(){
         wait.until(ExpectedConditions.visibilityOfAllElements(logs));
     }
+
 }
 
 

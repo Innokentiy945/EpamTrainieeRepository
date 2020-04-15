@@ -1,10 +1,10 @@
 package hw5.Tests.TestBase;
 
 import hw5.StepsPattern.HomePageSteps;
+import hw5.TestData.PropertiesOpener;
 import hw5.utils.WebDriverSingleton;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 
@@ -26,9 +26,9 @@ public class TestBase {
         HomePageSteps homePageSteps = new HomePageSteps(driver);
 
         homePageSteps.openUrl();
-        homePageSteps.checkTitle();
-        homePageSteps.logInOperation();
-        homePageSteps.assertUserName();
+        homePageSteps.checkTitle("HOME PAGE");
+        homePageSteps.logInOperation(PropertiesOpener.read("user"), PropertiesOpener.read("password"));
+        homePageSteps.assertUserName("ROMAN IOVLEV");
     }
 
     @AfterMethod

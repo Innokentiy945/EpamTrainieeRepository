@@ -11,7 +11,7 @@ import java.util.stream.Collectors;
 
 public class LeftMenu extends AbstractPageComposite {
 
-    public LeftMenu(WebDriver driver) throws InterruptedException {
+    public LeftMenu(WebDriver driver) {
         super(driver);
     }
 
