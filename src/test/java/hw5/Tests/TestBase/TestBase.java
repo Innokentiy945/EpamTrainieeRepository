@@ -1,6 +1,7 @@
 package hw5.Tests.TestBase;
 
 import hw5.StepsPattern.HomePageSteps;
+import hw5.utils.WebDriverSingleton;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -14,7 +15,8 @@ public class TestBase {
     @BeforeMethod
     public void setUp() {
         WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver();
+        WebDriverSingleton.INSTANCE.createdDriver("chrome");
+        driver = WebDriverSingleton.INSTANCE.getDriver();
         driver.manage().window().maximize();
     }
 

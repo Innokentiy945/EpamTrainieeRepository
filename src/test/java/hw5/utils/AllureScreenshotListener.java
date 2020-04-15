@@ -1,31 +1,30 @@
 package hw5.utils;
 
 
+import io.qameta.allure.Allure;
 import io.qameta.allure.Attachment;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebDriverException;
 import org.testng.ITestResult;
 import org.testng.TestListenerAdapter;
 
+import java.io.ByteArrayInputStream;
 
 
 public class AllureScreenshotListener extends TestListenerAdapter {
 
-
-    @Attachment(value = "screenshot", type = "image/png", fileExtension = "Bug.png")
+    @Attachment(value = "screenshot", type = "image/png", fileExtension = ".png")
     private byte[] takeScreenshot() {
         byte[] array = {1};
         try {
-            return new byte[0];
+            return ((TakesScreenshot) WebDriverSingleton.INSTANCE.getDriver()).getScreenshotAs(OutputType.BYTES);
         } catch (WebDriverException e) {
             e.printStackTrace();
         }
-
         return array;
     }
-
-
-
-
 
     @Override
     public void onTestSuccess(ITestResult tr) {
