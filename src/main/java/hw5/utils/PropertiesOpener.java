@@ -9,7 +9,7 @@ public class PropertiesOpener {
 
     public static String read(String property) {
 
-        try (InputStream input = new FileInputStream("src/test/resources/hw5/utils/data_properties_for_hw3")) {
+        try (InputStream input = new FileInputStream("src/test/resources/hw5/TestData/data_properties_for_hw3")) {
             Properties prop = new Properties();
             prop.load(input);
             return (prop.getProperty(property));
