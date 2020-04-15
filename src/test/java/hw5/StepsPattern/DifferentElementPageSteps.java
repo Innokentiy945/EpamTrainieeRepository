@@ -8,7 +8,7 @@ import org.openqa.selenium.WebDriver;
 import java.util.Arrays;
 import java.util.List;
 
-
+import static org.testng.Assert.assertTrue;
 
 
 public class DifferentElementPageSteps{
@@ -20,9 +20,7 @@ public class DifferentElementPageSteps{
 
 
 
-
-
-    public DifferentElementPageSteps(WebDriver driver) throws InterruptedException {
+    public DifferentElementPageSteps(WebDriver driver) {
         this.driver = driver;
         homePage = new HomePage(driver);
         differentElementPage = new DifferentElementPage(driver);
@@ -30,29 +28,41 @@ public class DifferentElementPageSteps{
 
 
     @Step("Opening Different Elements Page")
-    public void goToDifferentElementPAge() {
+    public void goToDifferentElementPage() {
         homePage.goToDifferentPage();
     }
 
 
     @Step("Selecting checkboxes")
-    public void selectingCheckboxes() {
-        List<String> checkboxes = Arrays.asList("Water", "Wind", "Selen");
-        differentElementPage.defineButtonElements(checkboxes);
+    public void selectingCheckbox(String checkboxName) {
+        differentElementPage.setCheckBox(checkboxName);
     }
 
+    @Step("Selecting radiobutton")
+    public void selectingRadio(String radioName) {
+        differentElementPage.setRadio(radioName);
+    }
 
     @Step("Selecting in dropdown Yellow")
-    public void selectingItemInDropdown() {
-        String color = "Yellow";
-        differentElementPage.defineColorDropDown(color);
+    public void selectingColorDropdownTo(String color) {
+        differentElementPage.setColorDropDown(color);
     }
 
 
-    @Step("Verifiy that log is displayed after selecting")
-    public void verifyingIndividualLog() {
-        List<String> logs = Arrays.asList("Wind", "Water", "Selen", "Yellow");
-        differentElementPage.isElementInLogDisplayed(logs);
+    @Step("Verify that log for checkboxes displayed after press checkboxes")
+    public void individualLogRowForCheckboxIsDisplayed(String checkBox, String status) {
+        assertTrue(differentElementPage.isCheckboxLogDisplayed(checkBox, status));
     }
+
+    @Step("Verify that log for radio button displayed after press radio buttons")
+    public void individualLogRowForRadioButtonIsDisplayed(String radio) {
+        assertTrue(differentElementPage.isRadioLogDisplayed(radio));
+    }
+
+    @Step("Verify that log for dropdown menu displayed after press dropdown menu")
+    public void individualLogRowForDropdownIsDisplayed(String dropdownValue) {
+        assertTrue(differentElementPage.isDropdownLogDisplayed(dropdownValue));
+    }
+
 
 }

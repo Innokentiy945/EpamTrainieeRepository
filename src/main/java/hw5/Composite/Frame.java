@@ -8,15 +8,15 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class Frame extends AbstractPageComposite {
 
-    public Frame(WebDriver driver) throws InterruptedException {
-        super(driver);
-    }
-
     @FindBy(id = "frame")
     private WebElement frame;
 
     @FindBy(id = "button-frame")
     private WebElement button;
+
+    public Frame(WebDriver driver) {
+        super(driver);
+    }
 
 
     public void switchToFrame(){
@@ -33,7 +33,7 @@ public class Frame extends AbstractPageComposite {
     }
 
     public boolean isFrameDisplayed(){
-        //wait.until(ExpectedConditions.visibilityOf(frame));
+        wait.until(ExpectedConditions.visibilityOf(frame));
         return frame.isDisplayed();
     }
 

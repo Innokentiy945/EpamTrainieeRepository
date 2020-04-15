@@ -9,12 +9,12 @@ public class HomePage extends AbstractPage {
 
     protected Benefits benefits;
     protected Frame frame;
-    protected LeftMenu leftMenu;
-    protected HeaderMenu headerMenu;
+    public LeftMenu leftMenu;
+    public HeaderMenu headerMenu;
 
 
 
-    public HomePage(WebDriver driver) throws InterruptedException {
+    public HomePage(WebDriver driver){
         super(driver);
         headerMenu = new HeaderMenu(driver);
         benefits = new Benefits(driver);

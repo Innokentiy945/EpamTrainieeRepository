@@ -9,6 +9,8 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
+import java.util.Arrays;
+
 
 @Listeners(AllureScreenshotListener.class)
 public class FunctionalTest1Failed extends TestBase {
@@ -28,16 +30,16 @@ public class FunctionalTest1Failed extends TestBase {
 
         standartOperations();
 
-        homePageSteps.verifyingHeaderMenuText();
-        homePageSteps.verifyingNumberOfItems();
+        homePageSteps.verifyingHeaderMenuText(Arrays.asList("HOME", "CONTACT FORM", "SERVICE", "METALS & COLORS"));
+        homePageSteps.verifyingNumberOfItems(Arrays.asList("HOME", "CONTACT FORM", "SERVICE", "METALS & COLORS"));
         homePageSteps.headerMenuIsDisplaeyd();
         homePageSteps.verifyingIframeExist();
         homePageSteps.verifyingIframeButton();
         homePageSteps.verifyingSwitchiToPrevousPage();
         homePageSteps.verifyingItemsInLeftMenu();
-        homePageSteps.veryfyingNamesOfItems();
-        homePageSteps.verifyingNumbersOfItems();
-        homePageSteps.incorrectNumberOfItems();
+        homePageSteps.veryfyingNamesOfItems(Arrays.asList("Home", "Contact form", "Service", "Metals & Colors", "Elements packs"));
+        homePageSteps.verifyingNumbersOfItems(Arrays.asList("Home", "Contact form", "Service", "Metals & Colors", "Elements packs"));
+        homePageSteps.incorrectNumberOfItems(Arrays.asList("Home", "Contact form", "Service", "Metals & Colors", "Elements packs", "Other element"));
 
     }
 }
