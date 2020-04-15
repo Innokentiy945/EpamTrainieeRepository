@@ -1,7 +1,7 @@
 package hw5.Tests.TestBase;
 
 import hw5.StepsPattern.HomePageSteps;
-import hw5.TestData.PropertiesOpener;
+import hw5.utils.PropertiesOpener;
 import hw5.utils.WebDriverSingleton;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
