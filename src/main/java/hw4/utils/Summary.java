@@ -1,8 +1,5 @@
 package hw4.utils;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class Summary {
 
     private Summary() {

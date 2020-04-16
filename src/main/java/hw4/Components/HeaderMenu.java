@@ -13,12 +13,6 @@ import java.util.List;
 
 public class HeaderMenu extends AbstractPage {
 
-    public HeaderMenu(WebDriver driver) {
-        super(driver);
-    }
-
-
-
     @FindBy(id = "user-icon")
     private WebElement userIcon;
 
@@ -39,6 +33,10 @@ public class HeaderMenu extends AbstractPage {
 
     @FindBy(css = ".m-l8 .dropdown")
     private WebElement serviceMenu;
+
+    public HeaderMenu(WebDriver driver) {
+        super(driver);
+    }
 
 
 
