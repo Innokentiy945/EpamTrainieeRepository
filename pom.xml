@@ -28,7 +28,6 @@
     </properties>
 
     <profiles>
-
         <profile>
             <id>Successful tests</id>
             <activation>
@@ -48,8 +47,9 @@
                 <suite.xml>${project.basedir}/src/test/resources/hw5/Suits/FailedFunctionalTest1</suite.xml>
             </properties>
         </profile>
-
     </profiles>
+
+
 
     <dependencies>
         <dependency>
