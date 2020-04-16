@@ -11,7 +11,6 @@ import org.testng.annotations.Test;
 
 import java.util.Arrays;
 
-
 @Listeners(AllureScreenshotListener.class)
 public class FunctionalTest1Failed extends TestBase {
 
@@ -23,7 +22,6 @@ public class FunctionalTest1Failed extends TestBase {
     public void init() throws InterruptedException {
         homePageSteps = new HomePageSteps(driver);
     }
-
 
     @Test
     public void functionalTest() throws InterruptedException {
@@ -40,6 +38,5 @@ public class FunctionalTest1Failed extends TestBase {
         homePageSteps.veryfyingNamesOfItems(Arrays.asList("Home", "Contact form", "Service", "Metals & Colors", "Elements packs"));
         homePageSteps.verifyingNumbersOfItems(Arrays.asList("Home", "Contact form", "Service", "Metals & Colors", "Elements packs"));
         homePageSteps.incorrectNumberOfItems(Arrays.asList("Home", "Contact form", "Service", "Metals & Colors", "Elements packs", "Other element"));
-
     }
 }
