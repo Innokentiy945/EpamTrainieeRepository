@@ -32,10 +32,10 @@
         <profile>
             <id>CucumberFunctionalTest</id>
             <activation>
-                <activeByDefault>false</activeByDefault>
+                <activeByDefault>true</activeByDefault>
             </activation>
             <properties>
-                <suite.xml>${project.basedir}src/test/resources/Suits/FunctionalTest1</suite.xml>
+                <suite.xml>${project.basedir}/src/test/resources/Suits/FunctionalTest1</suite.xml>
             </properties>
         </profile>
     </profiles>
