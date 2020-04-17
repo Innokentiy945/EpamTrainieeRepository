@@ -12,34 +12,30 @@
         <java.source.version>1.8</java.source.version>
         <java.target.version>1.8</java.target.version>
 
-        <testng.version>7.1.0</testng.version>
+        <java.source.version>1.8</java.source.version>
+        <java.target.version>1.8</java.target.version>
 
+        <testng.version>7.1.0</testng.version>
         <selenium.version>3.141.59</selenium.version>
         <webdrivermanager.version>3.8.1</webdrivermanager.version>
+        <allure.version>2.13.2</allure.version>
+        <aspectj.version>1.8.10</aspectj.version>
+        <cucumber.version>5.6.0</cucumber.version>
 
         <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
         <maven-surefire-plugin.version>2.22.2</maven-surefire-plugin.version>
+        <allure-maven-plugin.version>2.10.0</allure-maven-plugin.version>
     </properties>
 
 
     <profiles>
         <profile>
-            <id>PageObjectFunctionalTest1</id>
+            <id>CucumberFunctionalTest</id>
             <activation>
                 <activeByDefault>false</activeByDefault>
             </activation>
             <properties>
-                <suite.xml>${project.basedir}/src/test/resources/hw4/Suits/PageObjectFunctionalTest1.xml</suite.xml>
-            </properties>
-        </profile>
-
-        <profile>
-            <id>BuilderFunctionalTest2</id>
-            <activation>
-                <activeByDefault>false</activeByDefault>
-            </activation>
-            <properties>
-                <suite.xml>${project.basedir}/src/test/resources/hw4/Suits/BuilderFunctionalTest2</suite.xml>
+                <suite.xml>${project.basedir}src/test/resources/Suits/FunctionalTest1</suite.xml>
             </properties>
         </profile>
     </profiles>
@@ -70,19 +66,38 @@
             <version>3.15.0</version>
             <scope>test</scope>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-java -->
+        <!-- Cucumber -->
         <dependency>
             <groupId>io.cucumber</groupId>
             <artifactId>cucumber-java</artifactId>
-            <version>5.6.0</version>
+            <version>${cucumber.version}</version>
+            <scope>test</scope>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-testng -->
+
         <dependency>
             <groupId>io.cucumber</groupId>
             <artifactId>cucumber-testng</artifactId>
-            <version>5.6.0</version>
+            <version>${cucumber.version}</version>
+            <scope>test</scope>
         </dependency>
 
+        <dependency>
+            <groupId>io.qameta.allure</groupId>
+            <artifactId>allure-cucumber5-jvm</artifactId>
+            <version>${allure.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>info.cukes</groupId>
+            <artifactId>gherkin</artifactId>
+            <version>2.7.4</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>datatable</artifactId>
+            <version>3.3.1</version>
+            <scope>compile</scope>
+        </dependency>
 
 
     </dependencies>
@@ -99,6 +114,16 @@
                 <configuration>
                     <source>${java.source.version}</source>
                     <target>${java.target.version}</target>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>io.qameta.allure</groupId>
+                <artifactId>allure-maven</artifactId>
+                <version>${allure-maven-plugin.version}</version>
+                <configuration>
+                    <reportVersion>${allure.version}</reportVersion>
+                    <resultsDirectory>${project.basedir}/allure-results</resultsDirectory>
                 </configuration>
             </plugin>
 
