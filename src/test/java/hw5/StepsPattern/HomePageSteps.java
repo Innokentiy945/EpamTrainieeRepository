@@ -106,8 +106,3 @@ public class HomePageSteps {
         int incorrectNumberOfItemsInLeftMenu = homePage.counItemsInLefSectionMenu();
         assertEquals(incorrectNumberOfItemsInLeftMenu, incorrectNumberOfItemsForFailedTest.size());
     }
-
-
-
-
-}
