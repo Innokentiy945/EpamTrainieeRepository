@@ -29,7 +29,6 @@ public class FunctionalTest1 extends TestBase {
 
         homePageSteps.verifyingHeaderMenuText(Arrays.asList("HOME", "CONTACT FORM", "SERVICE", "METALS & COLORS"));
         homePageSteps.verifyingNumberOfItems(Arrays.asList("HOME", "CONTACT FORM", "SERVICE", "METALS & COLORS"));
-
         homePageSteps.verifyingIframeButton();
         homePageSteps.headerMenuIsDisplaeyd();
         homePageSteps.verifyingIframeExist();

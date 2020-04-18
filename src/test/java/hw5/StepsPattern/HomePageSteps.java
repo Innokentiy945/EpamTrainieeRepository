@@ -3,8 +3,8 @@ package hw5.StepsPattern;
 import hw5.Pages.HomePage;
 import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
-import java.util.List;
 
+import java.util.List;
 
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
@@ -52,11 +52,15 @@ public class HomePageSteps {
         assertEquals(actualTextOfHeaderMenuItems, expectedHeaderMenuText);
     }
 
+
+
     @Step("Verifying number of items in header menu on Home Page")
     public void verifyingNumberOfItems(List<String> expectedHeaderMenuItems) {
         int actualNumberOfHeaderItems = homePage.countHeaderMenuItems();
         assertEquals(actualNumberOfHeaderItems, expectedHeaderMenuItems.size());
     }
+
+
 
     @Step("Verifying that header menu on Home Page is displayed")
     public void headerMenuIsDisplaeyd() {
@@ -71,7 +75,7 @@ public class HomePageSteps {
     @Step("Verifying that there is 'FrameButton' in the iframe")
     public void verifyingIframeButton() {
         homePage.switchToFrame();
-        assertTrue(homePage.isFrameButtonDisplayed());
+        assertTrue(homePage.isFrameDisplayed());
     }
 
     @Step("Verifying that switching to previous page is possible")
