@@ -1,12 +1,16 @@
 package hw5.utils;
 
 
+import io.qameta.allure.Allure;
 import io.qameta.allure.Attachment;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebDriverException;
 import org.testng.ITestResult;
 import org.testng.TestListenerAdapter;
+
+import java.io.ByteArrayInputStream;
 
 
 public class AllureScreenshotListener extends TestListenerAdapter {
