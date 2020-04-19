@@ -16,7 +16,7 @@ public class HomePageSteps {
     protected HomePage homePage;
 
 
-    public HomePageSteps(WebDriver driver) throws InterruptedException {
+    public HomePageSteps(WebDriver driver){
         this.driver = driver;
         homePage = new HomePage(driver);
     }
@@ -67,15 +67,15 @@ public class HomePageSteps {
         assertTrue(homePage.isHeaderItemsDisplayed());
     }
 
-    @Step("Verifying the iframe with 'FrameButton' is exist")
+    @Step("Verifying the iframe with_FrameButton_exists")
     public void verifyingIframeExist() {
         assertTrue(homePage.isFrameDisplayed());
     }
 
-    @Step("Verifying that there is 'FrameButton' in the iframe")
+    @Step("Verifying that there is_FrameButton_in the iframe")
     public void verifyingIframeButton() {
         homePage.switchToFrame();
-        assertTrue(homePage.isFrameDisplayed());
+        assertTrue(homePage.isFrameButtonDisplayed());
     }
 
     @Step("Verifying that switching to previous page is possible")

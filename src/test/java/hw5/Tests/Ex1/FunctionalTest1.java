@@ -19,7 +19,7 @@ public class FunctionalTest1 extends TestBase {
     @Story("Log in to site and checking web elements")
 
     @BeforeMethod
-    public void init() throws InterruptedException {
+    public void init() {
         homePageSteps = new HomePageSteps(driver);
     }
 

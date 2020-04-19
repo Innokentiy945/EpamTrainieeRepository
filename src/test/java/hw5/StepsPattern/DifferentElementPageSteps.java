@@ -5,9 +5,6 @@ import hw5.Pages.HomePage;
 import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 
-import java.util.Arrays;
-import java.util.List;
-
 import static org.testng.Assert.assertTrue;
 
 
