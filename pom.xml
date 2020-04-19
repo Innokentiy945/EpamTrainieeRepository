@@ -29,7 +29,7 @@
 
     <profiles>
         <profile>
-            <id>Successful tests</id>
+            <id>All tests</id>
             <activation>
                 <activeByDefault>true</activeByDefault>
             </activation>
