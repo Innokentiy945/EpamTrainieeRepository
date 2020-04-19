@@ -20,7 +20,7 @@ public abstract class AbstractPageComposite {
 
     protected WebDriverWait wait;
 
-    protected AbstractPageComposite(WebDriver driver) throws InterruptedException {
+    protected AbstractPageComposite(WebDriver driver) {
         this.driver = driver;
         this.wait = new WebDriverWait(driver, 5);
         PageFactory.initElements(driver, this);

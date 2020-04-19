@@ -1,13 +1,14 @@
 package hw5.Tests.Ex1;
 
-import hw5.StepsPattern.HomePageSteps;
 import hw5.StepsPattern.DifferentElementPageSteps;
+import hw5.StepsPattern.HomePageSteps;
 import hw5.Tests.TestBase.TestBase;
 import hw5.utils.AllureScreenshotListener;
 import io.qameta.allure.Story;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
+
 
 
 @Listeners(AllureScreenshotListener.class)
@@ -27,9 +28,14 @@ public class FunctionalTest2 extends TestBase {
     @Test
     public void functionalTest() throws InterruptedException {
         standartOperations();
-        differentElementPageSteps.goToDifferentElementPAge();
-        differentElementPageSteps.selectingCheckboxes();
-        differentElementPageSteps.selectingItemInDropdown();
-        differentElementPageSteps.verifyingIndividualLog();
+        differentElementPageSteps.goToDifferentElementPage();
+        differentElementPageSteps.selectingCheckbox("Water");
+        differentElementPageSteps.selectingCheckbox("Wind");
+        differentElementPageSteps.selectingRadio("Selen");
+        differentElementPageSteps.selectingColorDropdownTo("Yellow");
+        differentElementPageSteps.individualLogRowForCheckboxIsDisplayed("Water", "true");
+        differentElementPageSteps.individualLogRowForCheckboxIsDisplayed("Wind", "true");
+        differentElementPageSteps.individualLogRowForRadioButtonIsDisplayed("Selen");
+        differentElementPageSteps.individualLogRowForDropdownIsDisplayed("Yellow");
     }
 }

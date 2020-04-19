@@ -13,11 +13,6 @@ import java.util.stream.Collectors;
 
 public class HeaderMenu extends AbstractPageComposite {
 
-    public HeaderMenu(WebDriver driver) throws InterruptedException {
-        super(driver);
-    }
-
-
 
     @FindBy(id = "user-icon")
     private WebElement userIcon;
@@ -40,6 +35,9 @@ public class HeaderMenu extends AbstractPageComposite {
     @FindBy(css = ".m-l8 .dropdown")
     private WebElement serviceMenu;
 
+    public HeaderMenu(WebDriver driver){
+        super(driver);
+    }
 
 
     public void loginOperation(String user, String pass){

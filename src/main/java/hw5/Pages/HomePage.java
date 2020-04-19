@@ -1,6 +1,9 @@
 package hw5.Pages;
 
-import hw5.Composite.*;
+import hw5.Composite.Benefits;
+import hw5.Composite.Frame;
+import hw5.Composite.HeaderMenu;
+import hw5.Composite.LeftMenu;
 import org.openqa.selenium.WebDriver;
 
 import java.util.List;
@@ -9,12 +12,12 @@ public class HomePage extends AbstractPage {
 
     protected Benefits benefits;
     protected Frame frame;
-    protected LeftMenu leftMenu;
-    protected HeaderMenu headerMenu;
+    public LeftMenu leftMenu;
+    public HeaderMenu headerMenu;
 
 
 
-    public HomePage(WebDriver driver) throws InterruptedException {
+    public HomePage(WebDriver driver){
         super(driver);
         headerMenu = new HeaderMenu(driver);
         benefits = new Benefits(driver);

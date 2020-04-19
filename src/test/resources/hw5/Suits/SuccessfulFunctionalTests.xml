@@ -1,6 +1,7 @@
-<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 
-<suite name="Successful test suit" verbose="1" >
+<suite name="Successful test suit">
 
     <listeners>
         <listener class-name="hw5.utils.AllureScreenshotListener"/>
