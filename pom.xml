@@ -34,17 +34,7 @@
                 <activeByDefault>true</activeByDefault>
             </activation>
             <properties>
-                <suite.xml>${project.basedir}/src/test/resources/hw5/Suits/SuccessfulFunctionalTests.xml</suite.xml>
-            </properties>
-        </profile>
-
-        <profile>
-            <id>Failed test</id>
-            <activation>
-                <activeByDefault>true</activeByDefault>
-            </activation>
-            <properties>
-                <suite.xml>${project.basedir}/src/test/resources/hw5/Suits/FailedFunctionalTest1</suite.xml>
+                <suite.xml>${project.basedir}/src/test/resources/hw5/Suits/AllTests.xml</suite.xml>
             </properties>
         </profile>
     </profiles>
@@ -123,6 +113,3 @@
         </plugins>
     </build>
 </project>
-
-
-

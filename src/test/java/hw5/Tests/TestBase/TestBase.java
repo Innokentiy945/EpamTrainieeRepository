@@ -21,7 +21,7 @@ public class TestBase {
     }
 
 
-    public void standartOperations() throws InterruptedException {
+    public void standartOperations() {
 
         HomePageSteps homePageSteps = new HomePageSteps(driver);
 

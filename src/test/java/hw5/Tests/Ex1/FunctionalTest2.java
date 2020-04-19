@@ -20,7 +20,7 @@ public class FunctionalTest2 extends TestBase {
     @Story("Log in to site, go to Different Element page, then testing functionality of radio buttons, checkboxes and dropdown")
 
     @BeforeMethod
-    public void init() throws InterruptedException {
+    public void init() {
         homePageSteps = new HomePageSteps(driver);
         differentElementPageSteps = new DifferentElementPageSteps(driver);
     }

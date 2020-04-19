@@ -24,7 +24,7 @@ public class FunctionalTest1Failed extends TestBase {
     }
 
     @Test
-    public void functionalTest() throws InterruptedException {
+    public void functionalTest() {
 
         standartOperations();
 
@@ -36,7 +36,6 @@ public class FunctionalTest1Failed extends TestBase {
         homePageSteps.verifyingSwitchiToPrevousPage();
         homePageSteps.verifyingItemsInLeftMenu();
         homePageSteps.veryfyingNamesOfItems(Arrays.asList("Home", "Contact form", "Service", "Metals & Colors", "Elements packs"));
-        homePageSteps.verifyingNumbersOfItems(Arrays.asList("Home", "Contact form", "Service", "Metals & Colors", "Elements packs"));
         homePageSteps.incorrectNumberOfItems(Arrays.asList("Home", "Contact form", "Service", "Metals & Colors", "Elements packs", "Other element"));
     }
 }
