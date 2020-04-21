@@ -1,6 +1,3 @@
-# Created by .ignore support plugin (hsz.mobi)
-### Example user template template
-### Example user template
 
 # IntelliJ project files
 .idea
@@ -8,3 +5,17 @@
 
 
 
+# Intellij
+.idea/
+*.iml
+
+
+
+# Maven
+target/
+
+
+#Allure
+**/allure-results
+**/.allure
+**/allure-report
