@@ -1,5 +1,13 @@
-# Created by .ignore support plugin (hsz.mobi)
-**/.idea
-**/target
-**/*.iml
+# Intellij
+.idea/
+*.iml
 
+
+# Maven
+target/
+
+
+#Allure
+**/allure-results
+**/.allure
+**/allure-report

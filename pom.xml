@@ -3,13 +3,14 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-
     <groupId>com.epam.InnokentiiObraztcov</groupId>
     <artifactId>InnokentiiObraztcov</artifactId>
     <version>1.0-SNAPSHOT</version>
 
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
-     <properties>
         <java.source.version>1.8</java.source.version>
         <java.target.version>1.8</java.target.version>
 
@@ -20,80 +21,20 @@
 
         <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
         <maven-surefire-plugin.version>2.22.2</maven-surefire-plugin.version>
+        <allure-maven-plugin.version>2.10.0</allure-maven-plugin.version>
+
+        <allure.version>2.13.2</allure.version>
+        <aspectj.version>1.9.5</aspectj.version>
     </properties>
 
-
-
     <profiles>
-     
-         <profile>
-
-            <id>FunctionalTest1</id>
-            <activation>
-                <activeByDefault>false</activeByDefault>
-            </activation>
-            <properties>
-                <suite.xml>${project.basedir}/src/test/resources/hw3/Suits/FunctionalTest1.xml</suite.xml>
-                <suite.xml>${project.basedir}/src/test/resources/FunctionalTest1.xml</suite.xml>
-        </profile>
         <profile>
-            <id>FunctionalTest2</id>
-            <activation>
-                <activeByDefault>false</activeByDefault>
-            </activation>
-            <properties>
-
-                <suite.xml>${project.basedir}/src/test/resources/hw3/Suits/FunctionalTest2.xml</suite.xml>
-                <suite.xml>${project.basedir}/src/test/resources/FunctionalTest2.xml</suite.xml>
-            </properties>
-        </profile>
-      
-        <profile>
-            <id>AdditionSubtraction</id>
+            <id>All tests</id>
             <activation>
                 <activeByDefault>true</activeByDefault>
             </activation>
             <properties>
-                <suite.xml>
-                    ${basedir}/src/test/resources/hw1/AdditionSubtractionTestSuit.xml
-                </suite.xml>
-            </properties>
-        </profile>
-
-        <profile>
-            <id>MultiplicationDivision</id>
-            <activation>
-                <activeByDefault>false</activeByDefault>
-            </activation>
-            <properties>
-                <suite.xml>
-                    ${basedir}/src/test/resources/hw1/MultiplicationDivisionTestSuit.xml
-                </suite.xml>
-            </properties>
-        </profile>
-
-        <profile>
-            <id>Trigonometry</id>
-            <activation>
-                <activeByDefault>false</activeByDefault>
-            </activation>
-            <properties>
-                <suite.xml>
-                    ${basedir}/src/test/resources/hw1/TrigonometryTestSuit.xml
-                </suite.xml>
-            </properties>
-        </profile>
-
-        <profile>
-            <id>AllTests</id>
-            <activation>
-                <activeByDefault>false</activeByDefault>
-            </activation>
-            <properties>
-                <suite.xml>
-                    ${basedir}/src/test/resources/hw1/AllTestSuit.xml
-                </suite.xml>
-
+                <suite.xml>${project.basedir}/src/test/resources/hw5/Suits/AllTests.xml</suite.xml>
             </properties>
         </profile>
     </profiles>
@@ -102,7 +43,6 @@
 
     <dependencies>
         <dependency>
-
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
             <version>${testng.version}</version>
@@ -119,22 +59,16 @@
             <version>${webdrivermanager.version}</version>
             <scope>test</scope>
         </dependency>
-
-
         <dependency>
-            <groupId>com.epam</groupId>
-            <artifactId>calculator</artifactId>
-            <version>1.0</version>
-            <scope>system</scope>
-            <systemPath>${project.basedir}/src/test/resources/hw1/CalculatorFile/calculator-1.0.jar</systemPath>
+            <groupId>io.qameta.allure</groupId>
+            <artifactId>allure-testng</artifactId>
+            <version>${allure.version}</version>
         </dependency>
     </dependencies>
 
-
-
-
     <build>
         <plugins>
+
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -142,9 +76,9 @@
                 <configuration>
                     <source>${java.source.version}</source>
                     <target>${java.target.version}</target>
+                    <encoding>UTF-8</encoding>
                 </configuration>
             </plugin>
-
 
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -152,8 +86,28 @@
                 <version>${maven-surefire-plugin.version}</version>
                 <configuration>
                     <suiteXmlFiles>
-                        <suiteXmlFiles>${suite.xml}</suiteXmlFiles>
+                        <xmlFile>${suite.xml}</xmlFile>
                     </suiteXmlFiles>
+                    <argLine>
+                        -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
+                    </argLine>
+                </configuration>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.aspectj</groupId>
+                        <artifactId>aspectjweaver</artifactId>
+                        <version>${aspectj.version}</version>
+                    </dependency>
+                </dependencies>
+            </plugin>
+
+            <plugin>
+                <groupId>io.qameta.allure</groupId>
+                <artifactId>allure-maven</artifactId>
+                <version>${allure-maven-plugin.version}</version>
+                <configuration>
+                    <reportVersion>${allure.version}</reportVersion>
+                    <resultsDirectory>${project.basedir}/allure-results</resultsDirectory>
                 </configuration>
             </plugin>
         </plugins>
