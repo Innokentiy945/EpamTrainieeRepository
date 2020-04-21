@@ -1,6 +1,14 @@
+
+# IntelliJ project files
+.idea
+*.iml
+
+
+
 # Intellij
 .idea/
 *.iml
+
 
 
 # Maven

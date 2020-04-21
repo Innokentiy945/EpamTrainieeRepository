@@ -8,8 +8,11 @@
     <version>1.0-SNAPSHOT</version>
 
     <properties>
+
+
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+
 
         <java.source.version>1.8</java.source.version>
         <java.target.version>1.8</java.target.version>
@@ -21,23 +24,36 @@
 
         <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
         <maven-surefire-plugin.version>2.22.2</maven-surefire-plugin.version>
+
         <allure-maven-plugin.version>2.10.0</allure-maven-plugin.version>
 
         <allure.version>2.13.2</allure.version>
         <aspectj.version>1.9.5</aspectj.version>
     </properties>
 
+
     <profiles>
         <profile>
-            <id>All tests</id>
+            <id>PageObjectFunctionalTest1</id>
             <activation>
-                <activeByDefault>true</activeByDefault>
+                <activeByDefault>false</activeByDefault>
             </activation>
             <properties>
-                <suite.xml>${project.basedir}/src/test/resources/hw5/Suits/AllTests.xml</suite.xml>
+                <suite.xml>${project.basedir}/src/test/resources/hw4/Suits/PageObjectFunctionalTest1.xml</suite.xml>
             </properties>
         </profile>
-    </profiles>
+
+        <profile>
+            <id>BuilderFunctionalTest2</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <properties>
+                <suite.xml>${project.basedir}/src/test/resources/hw4/Suits/BuilderFunctionalTest2</suite.xml>
+            </properties>
+        </profile>
+
+
 
 
 
@@ -60,15 +76,27 @@
             <scope>test</scope>
         </dependency>
         <dependency>
+            <groupId>org.assertj</groupId>
+            <artifactId>assertj-core</artifactId>
+            <version>3.15.0</version>
+            <scope>test</scope>
+        </dependency>
+
+    </dependencies>
+
+
+
+
+    <build>
+        <plugins>
+        <dependency>
             <groupId>io.qameta.allure</groupId>
             <artifactId>allure-testng</artifactId>
             <version>${allure.version}</version>
         </dependency>
     </dependencies>
-
     <build>
         <plugins>
-
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -76,16 +104,21 @@
                 <configuration>
                     <source>${java.source.version}</source>
                     <target>${java.target.version}</target>
+                </configuration>
+            </plugin>
                     <encoding>UTF-8</encoding>
                 </configuration>
             </plugin>
-
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>${maven-surefire-plugin.version}</version>
                 <configuration>
                     <suiteXmlFiles>
+
+                        ${suite.xml}
+                    </suiteXmlFiles>
+
                         <xmlFile>${suite.xml}</xmlFile>
                     </suiteXmlFiles>
                     <argLine>
@@ -108,6 +141,7 @@
                 <configuration>
                     <reportVersion>${allure.version}</reportVersion>
                     <resultsDirectory>${project.basedir}/allure-results</resultsDirectory>
+
                 </configuration>
             </plugin>
         </plugins>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="Builder functional test 2 suite">
+
+    <test name="Homework 4 test">
+        <packages>
+            <package name="hw4.Ex1"></package>
+        </packages>
+    </test>
+</suite>
