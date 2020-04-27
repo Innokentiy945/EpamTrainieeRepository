@@ -6,6 +6,7 @@ import com.fasterxml.jackson.databind.type.TypeFactory;
 import jdi.entity.MetalsColorsDataSet;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -20,14 +21,14 @@ public final class JsonParser {
         TypeFactory factory = mapper.getTypeFactory();
         try {
             File json = new File(path);
-            MapLikeType mapType =
-                    factory.constructMapLikeType(Map.class, String.class, MetalsColorsDataSet.class);
-            Map<String,MetalsColorsDataSet> map = mapper.readValue(json, mapType);
+            MapLikeType mapType = factory.constructMapLikeType(Map.class, String.class, MetalsColorsDataSet.class);
+            Map<String, MetalsColorsDataSet> map = mapper.readValue(json, mapType);
             return  new ArrayList<>(map.values());
 
         } catch (IOException ex) {
             ex.printStackTrace();
         }
+
         return null;
     }
 }

@@ -20,11 +20,4 @@ public class LogInForm extends Form<User> {
     @XPath("//*[@id=\"login-button\"]")
     private Button submit;
 
-    public void login(String login, String password) {
-        this.name.setValue(login);
-        this.password.setValue(password);
-        this.submit.click();
-    }
-
-
 }

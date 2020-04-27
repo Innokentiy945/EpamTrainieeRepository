@@ -1,6 +1,12 @@
 package jdi.entity;
 
+import lombok.*;
 
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+@ToString
 public class User {
 
     public static User ROMAN = new User("Roman", "Jdi1234", "ROMAN IOVLEV");
@@ -15,27 +21,4 @@ public class User {
         this.fullName = fullName;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public String getFullName() {
-        return fullName;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public void setFullName(String fullName) {
-        this.fullName = fullName;
-    }
 }
