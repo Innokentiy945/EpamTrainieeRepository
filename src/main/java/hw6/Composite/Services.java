@@ -11,9 +11,7 @@ import java.util.List;
 
 public class Services extends AbstractPageComposite {
 
-    public Services(WebDriver driver) {
-        super(driver);
-    }
+
 
     @FindBy(css = ".logs li")
     private List<WebElement> logs;
@@ -26,6 +24,12 @@ public class Services extends AbstractPageComposite {
     @FindBy(className = "checkbox-row")
     private List<WebElement> checkBoxElements;
 
+    @FindBy(className = "label-radio")
+    private List<WebElement> radioButtonElemetnts;
+
+    public Services(WebDriver driver) {
+        super(driver);
+    }
 
 
 
@@ -33,6 +37,13 @@ public class Services extends AbstractPageComposite {
         for (WebElement checkBoxElement : checkBoxElements) {
             if(!checkBoxElement.isSelected() & checkBoxElement.getText().equals(checkBoxName))
                 checkBoxElement.click();
+        }
+    }
+
+    public void defineRadioButton(String radio) {
+        for (WebElement radioButtonElemetnt : radioButtonElemetnts) {
+            if(!radioButtonElemetnt.isSelected() & radioButtonElemetnt.getText().equals(radio))
+                radioButtonElemetnt.click();
         }
     }
 
@@ -48,7 +59,29 @@ public class Services extends AbstractPageComposite {
         waitForLogsToBeVisible();
         boolean isDisplayed = false;
         for (WebElement log : logs) {
-            if (log.getText().contains("condition changed to " + logString)) {
+            if (log.getText().contains(logString + "true")) {
+                isDisplayed = true;
+            }
+        }
+        return isDisplayed;
+    }
+
+    public boolean isRadioButtonLogDisplayed(String radio) {
+        waitForLogsToBeVisible();
+        boolean isDisplayed = false;
+        for (WebElement log : logs) {
+            if (log.getText().contains(radio)) {
+                isDisplayed = true;
+            }
+        }
+        return isDisplayed;
+    }
+
+    public boolean isDropDownLogDisplayed(String color) {
+        waitForLogsToBeVisible();
+        boolean isDisplayed = false;
+        for (WebElement log : logs) {
+            if (log.getText().contains(color)) {
                 isDisplayed = true;
             }
         }

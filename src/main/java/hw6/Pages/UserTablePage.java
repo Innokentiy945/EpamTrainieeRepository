@@ -22,17 +22,10 @@ public class UserTablePage extends AbstractPage{
         mainContent.clickToCheckBox();
     }
 
-    public boolean isLogVipDisplayed(String logString) {
-        return mainContent.isElementInLogDisplayed(logString);
+    public boolean isLogVipDisplayed(String logString, String status) {
+        return mainContent.isVipLogDisplayed(logString, status);
     }
 
-    public void setVipCheckbox(String username) {
-        mainContent.setVipCheckbox(username);
-    }
-
-    public List<WebElement> getUserRoles(String username){
-        return mainContent.getUserRoles(username);
-    }
 
     public boolean isUserTableDisplayed() {
         return mainContent.isUsersNamesDisplayed();
@@ -71,7 +64,11 @@ public class UserTablePage extends AbstractPage{
     }
 
     public List<WebElement> getUsersCheckboxes() {
-        return getUsersCheckboxes();
+        return mainContent.getUsersCheckboxes();
+    }
+
+    public List<String> getUserRole(String username) {
+        return mainContent.getUserRoles(username);
     }
 
 

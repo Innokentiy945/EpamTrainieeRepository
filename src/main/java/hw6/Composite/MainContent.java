@@ -29,7 +29,8 @@ public class MainContent extends AbstractPageComposite{
     @FindBy(css = "#user-table a")
     private List<WebElement> usersNames;
 
-    @FindBy(css = "#user-table span")
+    //@FindBy(css = "#user-table span")
+    @FindBy(className = "user-descr")
     private List<WebElement> usersImagesDescriptions;
 
     @FindBy(css = "#user-table input")
@@ -39,45 +40,30 @@ public class MainContent extends AbstractPageComposite{
     private List<WebElement> usersIds;
 
 
+
     public MainContent(WebDriver driver) {
         super(driver);
         PageFactory.initElements(driver, this);
 
     }
 
+
     public void clickToCheckBox() {
         wait.until(ExpectedConditions.elementToBeClickable(ivanCheckBox)).click();
     }
 
-    public boolean isElementInLogDisplayed(String logString) {
+
+    public boolean isVipLogDisplayed(String vipLog, String status) {
         waitForLogsToBeVisible();
         boolean isDisplayed = false;
         for (WebElement log : logs) {
-            if (log.getText().contains("condition changed to " + logString)) {
+            if (log.getText().contains("condition changed to " + vipLog + status.equals("true"))) {
                 isDisplayed = true;
             }
         }
         return isDisplayed;
     }
 
-    public List<WebElement> getUserRoles(String username) {
-        waitForVisibilityOf(tableRows);
-        for (WebElement webElement : tableRows) {
-            if (webElement.getText().contains(username)) {
-                return webElement.findElements(By.cssSelector("select option"));
-            }
-        }
-        return null;
-    }
-
-    public void setVipCheckbox(String username) {
-        waitForVisibilityOf(tableRows);
-        for (WebElement webElement : tableRows) {
-            if (webElement.getText().contains(username)) {
-                webElement.findElement(By.tagName("input")).click();
-            }
-        }
-    }
 
 
     public boolean isUsersNamesDisplayed() {
@@ -114,7 +100,6 @@ public class MainContent extends AbstractPageComposite{
     }
 
 
-
     public List<String> getUsersIds() {
         waitForVisibilityOf(usersIds);
         return getListAsString(usersIds);
@@ -146,8 +131,15 @@ public class MainContent extends AbstractPageComposite{
         wait.until(ExpectedConditions.visibilityOfAllElements(elements));
     }
 
-
-
+    public List<String> getUserRoles(String username) {
+        waitForVisibilityOf(tableRows);
+        for (WebElement webElement : tableRows) {
+            if (webElement.getText().contains(username)) {
+                return getListAsString(webElement.findElements(By.cssSelector("select option")));
+            }
+        }
+        return null;
+    }
 
     private void waitForLogsToBeVisible() {
         wait.until(ExpectedConditions.visibilityOfAllElements(logs));

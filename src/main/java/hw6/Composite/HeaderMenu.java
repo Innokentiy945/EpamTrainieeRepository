@@ -39,19 +39,10 @@ public class HeaderMenu extends AbstractPageComposite {
     @FindBy(className = "dropdown-toggle")
     private WebElement dropDownMenu;
 
-    @FindBy(css = "#User Table")
+    //@FindBy(css = "#User Table")
+    @FindBy (xpath = "/html/body/header/div/nav/ul[1]/li[3]/ul/li[6]/a")
     private WebElement userTableMenu;
 
-
-    public void clickOnMenu() {
-        wait.until(ExpectedConditions.elementToBeClickable(dropDownMenu)).click();
-
-    }
-
-    public void goToUserTablePage() {
-        wait.until(ExpectedConditions.elementToBeClickable(userTableMenu)).click();
-
-    }
 
     public HeaderMenu(WebDriver driver) {
         super(driver);
@@ -68,31 +59,14 @@ public class HeaderMenu extends AbstractPageComposite {
         wait.until(ExpectedConditions.elementToBeClickable(submitLoginButton)).click();
     }
 
-    public boolean isUserNameDisplayed(){
-        return wait.until(ExpectedConditions.visibilityOf(userName)).isDisplayed();
+    public void clickOnMenu() {
+        wait.until(ExpectedConditions.elementToBeClickable(dropDownMenu)).click();
+
     }
 
-    public String getUserName(){
-        return wait.until(ExpectedConditions.visibilityOf(userName)).getText();
-    }
+    public void goToUserTablePage() {
+        wait.until(ExpectedConditions.elementToBeClickable(userTableMenu)).click();
 
-    public List<String> getHeaderMenuElementsText(){
-        waitForHeaderMenuElementsToBeVisible();
-        return headerMenuElements.stream().map(WebElement::getText).collect(Collectors.toList());
-    }
-
-    public int countHeaderMenuItems() {
-        waitForHeaderMenuElementsToBeVisible();
-        return headerMenuElements.size();
-    }
-
-    public boolean isHeaderMenuItemsDisplayed(){
-        waitForHeaderMenuElementsToBeVisible();
-        boolean isDisplayed = false;
-        for (WebElement element : headerMenuElements) {
-            isDisplayed = element.isDisplayed();
-        }
-        return isDisplayed;
     }
 
     //Ex.2
@@ -102,9 +76,6 @@ public class HeaderMenu extends AbstractPageComposite {
         wait.until(ExpectedConditions.elementToBeClickable(By.linkText("DIFFERENT ELEMENTS"))).click();
     }
 
-    private void waitForHeaderMenuElementsToBeVisible(){
-        wait.until(ExpectedConditions.visibilityOfAllElements(headerMenuElements));
-    }
 }
 
 
