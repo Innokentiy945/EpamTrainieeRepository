@@ -11,7 +11,7 @@ import jdi.forms.LogInForm;
 
 public class HomePage extends WebPage {
 
-    @XPath("/html/body/header/div/nav/ul[1]/li[4]/a")
+    @Css("ul.uui-navigation.nav.navbar-nav.m-l8")
     private Button goToMetalsColorsPage;
 
 
