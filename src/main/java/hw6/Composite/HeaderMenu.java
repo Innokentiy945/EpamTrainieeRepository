@@ -39,7 +39,7 @@ public class HeaderMenu extends AbstractPageComposite {
     @FindBy(className = "dropdown-toggle")
     private WebElement dropDownMenu;
 
-    @FindBy(css = "#User Table ")
+    @FindBy (linkText ="User Table ")
     private WebElement userTableMenu;
 
 
@@ -63,7 +63,8 @@ public class HeaderMenu extends AbstractPageComposite {
 
     }
 
-    public void goToUserTablePage() {
+       public void goToUserTablePage() {
+        wait.until(ExpectedConditions.elementToBeClickable(serviceMenu)).click();
         wait.until(ExpectedConditions.elementToBeClickable(userTableMenu)).click();
 
     }
