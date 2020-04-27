@@ -39,8 +39,7 @@ public class HeaderMenu extends AbstractPageComposite {
     @FindBy(className = "dropdown-toggle")
     private WebElement dropDownMenu;
 
-    //@FindBy(css = "#User Table")
-    @FindBy (xpath = "/html/body/header/div/nav/ul[1]/li[3]/ul/li[6]/a")
+    @FindBy(css = "#User Table ")
     private WebElement userTableMenu;
 
 
