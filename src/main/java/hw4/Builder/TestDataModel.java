@@ -13,7 +13,7 @@ public class TestDataModel {
     private List<Vegetables> vegetables;
     private List<Elements> elements;
 
-    public TestDataModel(String odd, String even, Colors colors, Metals metals, List<Vegetables> vegetables, List<Elements> elements) {
+    protected TestDataModel(String odd, String even, Colors colors, Metals metals, List<Vegetables> vegetables, List<Elements> elements) {
         this.odd = odd;
         this.even = even;
         this.colors = colors;
@@ -55,7 +55,7 @@ public class TestDataModel {
             return null;
         }
         StringBuilder stringBuilder = new StringBuilder();
-        vegetables.forEach(e -> stringBuilder.append(e.toString()));
+        vegetables.stream().forEach(e -> stringBuilder.append(e.toString()));
         return stringBuilder.toString();
 
     }
@@ -65,7 +65,7 @@ public class TestDataModel {
             return null;
         }
         StringBuilder stringBuilder = new StringBuilder();
-        elements.forEach(e -> stringBuilder.append(e.toString()));
+        elements.stream().forEach(e -> stringBuilder.append(e.toString()));
         return stringBuilder.toString();
     }
 

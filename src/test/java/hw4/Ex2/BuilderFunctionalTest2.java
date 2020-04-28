@@ -26,11 +26,11 @@ public class BuilderFunctionalTest2 extends TestBase {
     @DataProvider
     public Object[][] dataProvider() {
         return new Object[][]{
-                {DataGenerator.getDefaultTestDataBuilder().setOdd(null).setEven(null).setElements(Arrays.asList(Elements.EARTH)).setColors(Colors.YELLOW).setMetals(Metals.GOLD).setVegetables(null).build()},
-                {DataGenerator.getDefaultTestDataBuilder().setOdd("3").setEven("8").setElements(null).setColors(null).setMetals(null).setVegetables(Arrays.asList(Vegetables.CUCUMBER, Vegetables.TOMATO)).build()},
-                {DataGenerator.getDefaultTestDataBuilder().setOdd("3").setEven("2").setElements(Arrays.asList(Elements.WATER, Elements.WIND, Elements.FIRE)).setColors(null).setMetals(Metals.BRONZE).setVegetables(Arrays.asList(Vegetables.ONION)).build()},
+                {DataGenerator.getDefaultTestDataBuilder().setElements(Arrays.asList(Elements.EARTH)).setColors(Colors.YELLOW).setMetals(Metals.GOLD).build()},
+                {DataGenerator.getDefaultTestDataBuilder().setOdd("3").setEven("8").setVegetables(Arrays.asList(Vegetables.CUCUMBER, Vegetables.TOMATO)).build()},
+                {DataGenerator.getDefaultTestDataBuilder().setOdd("3").setEven("2").setElements(Arrays.asList(Elements.WATER, Elements.WIND, Elements.FIRE)).setMetals(Metals.BRONZE).setVegetables(Arrays.asList(Vegetables.ONION)).build()},
                 {DataGenerator.getDefaultTestDataBuilder().setOdd("5").setEven("6").setElements(Arrays.asList(Elements.WATER)).setColors(Colors.GREEN).setMetals(Metals.SELEN).setVegetables(Arrays.asList(Vegetables.CUCUMBER, Vegetables.TOMATO, Vegetables.VEGETABLES, Vegetables.ONION)).build()},
-                {DataGenerator.getDefaultTestDataBuilder().setOdd(null).setEven(null).setElements(Arrays.asList(Elements.FIRE)).setColors(Colors.BLUE).setMetals(null).setVegetables(Arrays.asList(Vegetables.CUCUMBER, Vegetables.TOMATO, Vegetables.VEGETABLES)).build()}
+                {DataGenerator.getDefaultTestDataBuilder().setElements(Arrays.asList(Elements.FIRE)).setColors(Colors.BLUE).setVegetables(Arrays.asList(Vegetables.CUCUMBER, Vegetables.TOMATO, Vegetables.VEGETABLES)).build()}
         };
     }
 

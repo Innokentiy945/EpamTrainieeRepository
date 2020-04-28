@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="All test suit">
+
+    <listeners>
+        <listener class-name="hw5.utils.AllureScreenshotListener"/>
+    </listeners>
+
+    <test name="All test suit">
+        <packages>
+            <package name="hw5.Tests.TestBase"></package>
+            <package name="hw5.Tests.Ex1"></package>
+            <package name="hw5.Tests.Ex2"></package>
+        </packages>
+    </test>
+</suite>
