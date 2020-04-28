@@ -1,8 +1,5 @@
-
-# IntelliJ project files
-.idea
-*.iml
-
+# Maven
+target/
 
 
 # Intellij
@@ -10,12 +7,8 @@
 *.iml
 
 
-
-# Maven
-target/
-
-
 #Allure
 **/allure-results
 **/.allure
 **/allure-report
+
