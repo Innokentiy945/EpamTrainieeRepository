@@ -1,0 +1,25 @@
+Patterns:
+-Page Object
+-Builder
+
+
+Explanation:
+-in first test there are no many data, good decision will be a only Page Object pattern with property data file.
+-in second test there is a much data, good decision will be a Page Object and Builder patterns.
+
+
+Layers have already implemented:
+
+-Test implementation layer
+-Test run layer
+-Configuration layer
+-Utility layer
+-Test data layer
+
+Missed layers:
+-Report and logs layer
+-Service layer
+
+
+Solution:
+-Adding missed layers: log in special directory and service which will be work with data base information
