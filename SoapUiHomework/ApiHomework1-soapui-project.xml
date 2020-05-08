@@ -150,8 +150,8 @@
 def projectPath=groovyUtils.projectPath
 log.info projectPath
 
-
-def file = new File(projectPath+ "/TestDataTextSpell.csv") 
+def fileName=testRunner.testCase.testSuite.project.getPropertyValue("fileNameCsv");
+def file = new File(projectPath+ "/"+fileName) 
 log.info file
 def records = file.readLines()
 
@@ -180,9 +180,8 @@ def projectProperty = testRunner.testCase.getPropertyValue( "checkingWord" )
 def projectPath=groovyUtils.projectPath
 log.info projectPath
 
-
-def file = new File(projectPath+ "/TestDataTextSpell.csv") 
-log.info file
+def fileName=testRunner.testCase.testSuite.project.getPropertyValue("fileNameCsv");
+def file = new File(projectPath+ "/"+fileName) 
 def records = file.readLines()
 
 testRunner.testCase.setPropertyValue("checkingWord",records[1])  
@@ -219,9 +218,8 @@ def projectProperty = testRunner.testCase.getPropertyValue( "checkingWord" )</co
 def projectPath=groovyUtils.projectPath
 log.info projectPath
 
-
-def file = new File(projectPath+ "/TestDataTextSpell.csv") 
-log.info file
+def fileName=testRunner.testCase.testSuite.project.getPropertyValue("fileNameCsv");
+def file = new File(projectPath+ "/"+fileName) 
 def records = file.readLines()
 
 testRunner.testCase.setPropertyValue("checkingWord",records[0])  
@@ -249,8 +247,8 @@ def projectPath=groovyUtils.projectPath
 log.info projectPath
 
 
-def file = new File(projectPath+ "/TestDataTextSpell.csv") 
-log.info file
+def fileName=testRunner.testCase.testSuite.project.getPropertyValue("fileNameCsv");
+def file = new File(projectPath+ "/"+fileName) 
 def records = file.readLines()
 
 testRunner.testCase.setPropertyValue("checkingWord",records[2])  
@@ -279,8 +277,8 @@ def projectPath=groovyUtils.projectPath
 log.info projectPath
 
 
-def file = new File(projectPath+ "/TestDataTextSpell.csv") 
-log.info file
+def fileName=testRunner.testCase.testSuite.project.getPropertyValue("fileNameCsv");
+def file = new File(projectPath+ "/"+fileName) 
 def records = file.readLines()
 
 testRunner.testCase.setPropertyValue("checkingWord",records[3])  
@@ -313,18 +311,18 @@ def file = new File(projectPath+ "/TestDataTextSpell.csv")
 log.info file
 def records = file.readLines()
 
-testRunner.testCase.setPropertyValue("checkingWord",records[4])  
+testRunner.testCase.setPropertyValue("checkingWord","A pple")  
 def projectProperty = testRunner.testCase.getPropertyValue( "checkingWord2" )
 
 
-testRunner.testCase.setPropertyValue("checkingWord2",records[5])
+testRunner.testCase.setPropertyValue("checkingWord2","Ap ple")
 def projectProperty1 = testRunner.testCase.getPropertyValue( "checkingWord2" )
 
 
-testRunner.testCase.setPropertyValue("checkingWord3",records[6])
+testRunner.testCase.setPropertyValue("checkingWord3","App le")
 def projectProperty2 = testRunner.testCase.testSuite.project.getPropertyValue( "checkingWord3" )
 
-testRunner.testCase.setPropertyValue("checkingWord3",records[7])
+testRunner.testCase.setPropertyValue("checkingWord4","Appl e")
 def projectProperty3 = testRunner.testCase.testSuite.project.getPropertyValue( "checkingWord4" )
 
 
@@ -401,7 +399,7 @@ def projectProperty2 = testRunner.testCase.testSuite.project.getPropertyValue( "
 
 testRunner.testCase.setPropertyValue("checkingWord3",records[7])
 def projectProperty3 = testRunner.testCase.testSuite.project.getPropertyValue( "checkingWord4" )</con:setupScript><con:tearDownScript>testCaseName = testCaseResult.getTestCase().name
-    log.info testCaseName</con:tearDownScript><con:properties/></con:testCase><con:testCase id="16301936-2e22-4606-bc57-f382c5e76d80" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="invalidLangProp" searchProperties="true"><con:settings/><con:testStep type="groovy" name="DataReader" id="aafa3bcc-4568-43cc-92a9-2a6260211881"><con:settings/><con:config><script>def groovyUtils = new com.eviware.soapui.support.GroovyUtils( context )
+    log.info testCaseName</con:tearDownScript><con:properties><con:property><con:name>checkingWord</con:name><con:value> A pple</con:value></con:property><con:property><con:name>checkingWord2</con:name><con:value> Ap ple</con:value></con:property><con:property><con:name>checkingWord3</con:name><con:value> Appl e</con:value></con:property></con:properties></con:testCase><con:testCase id="16301936-2e22-4606-bc57-f382c5e76d80" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="invalidLangProp" searchProperties="true"><con:settings/><con:testStep type="groovy" name="DataReader" id="aafa3bcc-4568-43cc-92a9-2a6260211881"><con:settings/><con:config><script>def groovyUtils = new com.eviware.soapui.support.GroovyUtils( context )
 def projectPath=groovyUtils.projectPath
 log.info projectPath
 
@@ -463,4 +461,50 @@ def projectProperty2 = testRunner.testCase.testSuite.project.getPropertyValue( "
 
 testRunner.testCase.setPropertyValue("checkingWord3",records[7])
 def projectProperty3 = testRunner.testCase.testSuite.project.getPropertyValue( "checkingWord4" )</con:setupScript><con:tearDownScript>testCaseName = testCaseResult.getTestCase().name
-    log.info testCaseName</con:tearDownScript><con:properties><con:property><con:name>checkingWord</con:name><con:value> A pple</con:value></con:property><con:property><con:name>checkingWord2</con:name><con:value> Ap ple</con:value></con:property><con:property><con:name>checkingWord3</con:name><con:value> Appl e</con:value></con:property></con:properties></con:testCase><con:properties/></con:testSuite><con:properties><con:property><con:name>checkingWord</con:name><con:value>invalidLangParamCase</con:value></con:property><con:property><con:name>checkingWord2</con:name><con:value>multipleCharsInTextSpeller</con:value></con:property><con:property><con:name>checkingWord3</con:name><con:value>emrtySpaceInWord</con:value></con:property></con:properties><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/><con:sensitiveInformation/></con:soapui-project>
+    log.info testCaseName</con:tearDownScript><con:properties><con:property><con:name>checkingWord</con:name><con:value> A pple</con:value></con:property><con:property><con:name>checkingWord2</con:name><con:value> Ap ple</con:value></con:property><con:property><con:name>checkingWord3</con:name><con:value> Appl e</con:value></con:property></con:properties></con:testCase><con:properties/></con:testSuite><con:testSuite id="77756066-9f99-4873-b977-9aede772387f" name="DdtOnSpaceInWord"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="76a62404-4565-4a82-8076-b30089adaf79" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="RunTests" searchProperties="true"><con:settings/><con:testStep type="groovy" name="DataReader" id="077417f9-2edf-483e-95a0-7c28cb80bf1e"><con:settings/><con:config><script>import com.eviware.soapui.impl.wsdl.teststeps.registry.GroovyScriptStepFactory;
+import groovy.json.JsonSlurper;
+
+def thisProject=testRunner.getTestCase().getTestSuite().getProject();
+	 log.info thisProject.getName();
+def groovyUtils = new com.eviware.soapui.support.GroovyUtils( context )
+def projectPath=groovyUtils.projectPath
+
+def fileName=testRunner.testCase.testSuite.project.getPropertyValue("fileNameJson");
+def file = new File(projectPath+ "/"+fileName) 
+
+def jsonSlurper=new JsonSlurper();
+def testData=jsonSlurper.parse(file);
+
+def tc=thisProject.testSuites['DdtOnSpaceInWord'].testCases['SpaceInWord']
+
+for (  i=0;i&lt; testData.testData.size; i++) {
+ 		tc.setPropertyValue("checkingWord1", testData.testData[i].testcase[0].word)
+	     tc.setPropertyValue("checkingWord2", testData.testData[i].testcase[1].word)
+ 		tc.setPropertyValue("checkingWord3", testData.testData[i].testcase[2].word)
+ 
+		 tc.setPropertyValue("expect1", testData.testData[i].testcase[0].expect)
+		 tc.setPropertyValue("expect2", testData.testData[i].testcase[1].expect)
+		 tc.setPropertyValue("expect3", testData.testData[i].testcase[2].expect)	
+
+		def runner=tc.run(null,false)
+
+log.info "Test case on input : test case ${i+1} "+"status ${runner.status}"
+		
+}
+
+
+
+
+
+
+</script></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="551fe762-a121-4e5b-a2ee-44fadb6cf9b1" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="SpaceInWord" searchProperties="true"><con:settings/><con:testStep type="request" name="SOAP Request" id="675f6f75-0470-42c0-a817-7b8b8b525b40"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>SpellServiceSoap</con:interface><con:operation>checkTexts</con:operation><con:request name="SOAP Request" id="baeea2da-b9d8-4f05-84c6-0700080a5828"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://speller.yandex.net/services/spellservice</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:spel="http://speller.yandex.net/services/spellservice">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <spel:CheckTextsRequest lang="en" options="0" format="plain">
+         <!--Zero or more repetitions:-->
+         <spel:text>${#TestCase#checkingWord1}</spel:text>
+          <spel:text>${#TestCase#checkingWord2}</spel:text>
+          <spel:text>${#TestCase#checkingWord3}</spel:text>         
+      </spel:CheckTextsRequest>
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="389fcab6-7a91-4d53-b645-6382dda87188"/><con:assertion type="Simple Contains" id="330c72d9-7de4-4e58-87a7-1c08bf2aa6c6" name="ContainsExpect1"><con:configuration><token>${#TestCase#expect2}</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:assertion type="Simple Contains" id="330c72d9-7de4-4e58-87a7-1c08bf2aa6c6" name="ContainsExpect2"><con:configuration><token>${#TestCase#expect2}</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:assertion type="Simple Contains" id="330c72d9-7de4-4e58-87a7-1c08bf2aa6c6" name="ContainsExpect3"><con:configuration><token>${#TestCase#expect3}</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties><con:property><con:name>checkingWord1</con:name><con:value>In for ma tio n</con:value></con:property><con:property><con:name>checkingWord2</con:name><con:value>Info rmation</con:value></con:property><con:property><con:name>checkingWord3</con:name><con:value>I n f o r m a t i o n</con:value></con:property><con:property><con:name>expect1</con:name><con:value>Information</con:value></con:property><con:property><con:name>expect2</con:name><con:value>Information</con:value></con:property><con:property><con:name>expect3</con:name><con:value>Information</con:value></con:property></con:properties></con:testCase><con:properties/></con:testSuite><con:properties><con:property><con:name>fileNameJson</con:name><con:value>DataForDDT_InputOutput.json</con:value></con:property><con:property><con:name>fileNameCsv</con:name><con:value>TestDataTextSpell.csv</con:value></con:property></con:properties><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/><con:sensitiveInformation/></con:soapui-project>
