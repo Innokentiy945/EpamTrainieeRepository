@@ -1,0 +1,84 @@
+[
+  {
+    "textRequest" : "aple appe appla",
+    "dtos": [
+      {
+        "code": 1,
+        "pos": 0,
+        "row": 0,
+        "col": 0,
+        "len": 4,
+        "word": "aple",
+        "s": [
+          "apple"
+        ]
+      },
+      {
+        "code": 1,
+        "pos": 5,
+        "row": 0,
+        "col": 5,
+        "len": 4,
+        "word": "appe",
+        "s": [
+          "apple",
+          "apps",
+          "app"
+        ]
+      },
+      {
+        "code": 1,
+        "pos": 10,
+        "row": 0,
+        "col": 10,
+        "len": 5,
+        "word": "appla",
+        "s": [
+          "apple",
+          "apple a"
+        ]
+      }
+    ]
+  },
+  {
+    "textRequest" : "ябоко фблоко алоко",
+    "dtos": [
+      {
+        "code": 1,
+        "pos": 0,
+        "row": 0,
+        "col": 0,
+        "len": 5,
+        "word": "ябоко",
+        "s": [
+          "яблоко"
+        ]
+      },
+      {
+        "code": 1,
+        "pos": 6,
+        "row": 0,
+        "col": 6,
+        "len": 6,
+        "word": "фблоко",
+        "s": [
+          "яблоко"
+        ]
+      },
+      {
+        "code": 1,
+        "pos": 13,
+        "row": 0,
+        "col": 13,
+        "len": 5,
+        "word": "алоко",
+        "s": [
+          "яблоко",
+          "молоко",
+          "алоко",
+          "алеко"
+        ]
+      }
+    ]
+  }
+]
