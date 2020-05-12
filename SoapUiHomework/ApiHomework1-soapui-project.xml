@@ -493,8 +493,16 @@ for (  i=0;i&lt; testData.testData.size; i++) {
 		 tc.setPropertyValue("expect3", testData.testData[i].testcase[2].expect)	
 
 		def runner=tc.run(null,false)
-		log.info runner
-		log.info "Test case ${i+1}:  "+"status ${runner.status}"
+		log.info runner	
+			
+		if (runner.getStatus().toString() == "FAILED"){
+			testRunner.fail("Actual result is not as expected") 
+			}
+		log.info "Test case ${i+1}:  "+"status ${runner.status}"				
+
+		
+
+
 }
 
 
