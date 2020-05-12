@@ -8,6 +8,7 @@ import org.testng.annotations.Test;
 import api2.dto.SpellerDto;
 import api2.dto.EntityBuilder;
 
+import java.util.stream.Stream;
 
 
 public class CheckTextSpellerTest {
@@ -19,52 +20,27 @@ public class CheckTextSpellerTest {
     }
 
 
-    @Test(dataProvider = "dataProviderEmptySpaceInWord", dataProviderClass = DataProviders.class)
-    public void spellingEmptySpaceInWord(EntityBuilder testData) {
-        assertResult(testData);
+    @Test(dataProvider = "dataProviderMultipleWords", dataProviderClass = DataProviders.class)
+    public void spellerMultipleWords(EntityBuilder testData) {
+        assertResultTexts(testData);
+        System.out.println("Text reques is: ");
+        Stream.of(testData.textRequest).findFirst().ifPresent(System.out::println);
     }
 
-
-    @Test(dataProvider = "dataProviderDigitsInWords", dataProviderClass = DataProviders.class)
-    public void spellingDigitsInWord(EntityBuilder testData) {
-        assertResult(testData);
-
+    @Test(dataProvider = "dataProviderSingleWord", dataProviderClass = DataProviders.class)
+    public void spellerSingleWord(EntityBuilder testData) {
+        assertResultText(testData);
+        Stream.of(testData.textRequest).findFirst().ifPresent(System.out::println);
     }
 
-    @Test(dataProvider = "dataProviderErrorsInMultipleLangs", dataProviderClass = DataProviders.class)
-    public void spellingErrorsInMultipleLangs(EntityBuilder testData) {
-        assertResult(testData);
-    }
-
-    @Test(dataProvider = "dataProviderErrorsInMultipleTextsAndLangs", dataProviderClass = DataProviders.class)
-    public void spellingErrorsInMultipleTextsAndLangs(EntityBuilder testData) {
-        assertResult(testData);
-    }
-
-    @Test(dataProvider = "dataProviderUrls", dataProviderClass = DataProviders.class)
-    public void ignoreUrls(EntityBuilder testData) {
-        assertResult(testData);
-    }
-
-    @Test(dataProvider = "dataProviderIgnoreDotsInWords", dataProviderClass = DataProviders.class)
-    public void spellingWordsWithDots(EntityBuilder testData) {
-        assertResult(testData);
-    }
-
-    @Test(dataProvider = "dataProviderIgnoreDotsInWordsWithErrors", dataProviderClass = DataProviders.class)
-    public void spellingWordsWithErrorsAndWithDots(EntityBuilder testData) {
-        assertResult(testData);
-    }
-
-    @Test(dataProvider = "dataProviderFullText", dataProviderClass = DataProviders.class)
-    public void spellingFullText(EntityBuilder testData) {
-        assertResult(testData);
-    }
-
-    private void assertResult(EntityBuilder testData) {
+    private void assertResultText(EntityBuilder testData) {
         SpellerDto[] actualSpellerResult = spellerOperations.checkText(testData.getTextRequest());
         Assert.assertEquals(actualSpellerResult, testData.getDtos());
     }
 
+    private void assertResultTexts(EntityBuilder testData) {
+        SpellerDto[] actualSpellerResult = spellerOperations.checkText(testData.getTextRequest());
+        Assert.assertEquals(actualSpellerResult, testData.getDtos());
+    }
 
 }

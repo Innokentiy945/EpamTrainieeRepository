@@ -5,6 +5,6 @@ import lombok.*;
 
 @Data
 public class EntityBuilder {
-    private String textRequest;
+    public String textRequest;
     private SpellerDto[] dtos;
 }

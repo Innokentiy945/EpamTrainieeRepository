@@ -17,16 +17,4 @@ public class PropertiesReader {
         }
         return null;
     }
-
-    public static String readPropety(String property) {
-
-        try (InputStream input = new FileInputStream("src/test/resources/test.properties")) {
-            Properties prop = new Properties();
-            prop.load(input);
-            return (prop.getProperty(property));
-        } catch (IOException ex) {
-            ex.printStackTrace();
-        }
-        return null;
-    }
 }

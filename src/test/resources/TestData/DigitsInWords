@@ -9,8 +9,7 @@
         "col": 1,
         "len": 9,
         "word": "Starcraft",
-        "s": [
-        ]
+        "s": []
       }
     ]
   },
@@ -24,8 +23,7 @@
         "col": 1,
         "len": 10,
         "word": "Starcraft2",
-        "s": [
-        ]
+        "s": []
       }
     ]
   },
@@ -56,10 +54,9 @@
         "col": 0,
         "len": 11,
         "word": "2Star2craft",
-        "s": ["starcraft",
-          "2 Star 2 craft",
-          "2 Stars 2 craft",
-          "2 Start 2 craft"]
+        "s": [
+
+        ]
       }
     ]
   },

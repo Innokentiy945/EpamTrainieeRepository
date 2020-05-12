@@ -3,93 +3,82 @@ package api2;
 import api2.dto.EntityBuilder;
 import org.testng.annotations.DataProvider;
 import api2.utils.JsonParser;
+import org.testng.collections.Lists;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Iterator;
-import java.util.List;
+import java.util.*;
 
 public class DataProviders {
 
-    @DataProvider
-    public Iterator<Object[]> dataProviderEmptySpaceInWord() {
+
+    public Object[][] EmptySpaceInWord() {
         List<EntityBuilder> testData = JsonParser.readData("src/test/resources/TestData/EmptySpaceInWord.json");
-        Collection<Object[]> data = new ArrayList<Object[]>();
+        Collection<Object[]> data = new ArrayList<>();
         testData.forEach(item -> data.add(new Object[]{item}));
-        return data.iterator();
+        return data.toArray(new Object[0][]);
     }
 
-    @DataProvider
-    public Iterator<Object[]> dataProviderDigitsInWords() {
-        List<EntityBuilder> testData = JsonParser.readData("src/test/resources/TestData/DigitsInWords.json");
-        Collection<Object[]> data = new ArrayList<Object[]>();
-        testData.forEach(item -> data.add(new Object[]{item}));
-        return data.iterator();
-    }
-
-    @DataProvider
-    public Iterator<Object[]> dataProviderErrorsInMultipleLangs() {
-        List<EntityBuilder> testData = JsonParser.readData("src/test/resources/TestData/ErrorsInMultipleLangs.json");
-        Collection<Object[]> data = new ArrayList<Object[]>();
-        testData.forEach(item -> data.add(new Object[]{item}));
-        return data.iterator();
-    }
-
-    @DataProvider
-    public Iterator<Object[]> dataProviderErrorsInMultipleTextsAndLangs() {
-        List<EntityBuilder> testData = JsonParser.readData("src/test/resources/TestData/ErrorsInMultipleTextsAndLangs.json");
-        Collection<Object[]> data = new ArrayList<Object[]>();
-        testData.forEach(item -> data.add(new Object[]{item}));
-        return data.iterator();
-    }
-
-
-    @DataProvider
-    public Iterator<Object[]> dataProviderUrls() {
+    public Object[][] Urls() {
         List<EntityBuilder> testData = JsonParser.readData("src/test/resources/TestData/Urls.json");
-        Collection<Object[]> data = new ArrayList<Object[]>();
+        Collection<Object[]> data = new ArrayList<>();
         testData.forEach(item -> data.add(new Object[]{item}));
-        return data.iterator();
+        return data.toArray(new Object[0][]);
     }
 
-    @DataProvider
-    public Iterator<Object[]> dataProviderIgnoreDotsInWords() {
+    public Object[][] DigitsInWords() {
+        List<EntityBuilder> testData = JsonParser.readData("src/test/resources/TestData/DigitsInWords");
+        Collection<Object[]> data = new ArrayList<>();
+        testData.forEach(item -> data.add(new Object[]{item}));
+        return data.toArray(new Object[0][]);
+    }
+
+    public Object[][] IgnoreDotsInWords() {
         List<EntityBuilder> testData = JsonParser.readData("src/test/resources/TestData/DotsInWords.json");
-        Collection<Object[]> data = new ArrayList<Object[]>();
+        Collection<Object[]> data = new ArrayList<>();
         testData.forEach(item -> data.add(new Object[]{item}));
-        return data.iterator();
+        return data.toArray(new Object[0][]);
     }
 
-    @DataProvider
-    public Iterator<Object[]> dataProviderIgnoreDotsInWordsWithErrors() {
+    public Object[][] IgnoreDotsInWordsWithErrors() {
         List<EntityBuilder> testData = JsonParser.readData("src/test/resources/TestData/DotsInWordWithError.json");
-        Collection<Object[]> data = new ArrayList<Object[]>();
+        Collection<Object[]> data = new ArrayList<>();
         testData.forEach(item -> data.add(new Object[]{item}));
-        return data.iterator();
+        return data.toArray(new Object[0][]);
+    }
+
+    public Object[][] ErrorsInMultipleLangs() {
+        List<EntityBuilder> testData = JsonParser.readData("src/test/resources/TestData/ErrorsInMultipleLangs.json");
+        Collection<Object[]> data = new ArrayList<>();
+        testData.forEach(item -> data.add(new Object[]{item}));
+        return data.toArray(new Object[0][]);
+    }
+
+    public Object[][] FullText() {
+        List<EntityBuilder> testData = JsonParser.readData("src/test/resources/TestData/FullText.json");
+        Collection<Object[]> data = new ArrayList<>();
+        testData.forEach(item -> data.add(new Object[]{item}));
+        return data.toArray(new Object[0][]);
     }
 
     @DataProvider
-    public Iterator<Object[]> dataProviderFullText() {
-        List<EntityBuilder> testData = JsonParser.readData("src/test/resources/TestData/FullText.json");
-        Collection<Object[]> data = new ArrayList<Object[]>();
-        testData.forEach(item -> data.add(new Object[]{item}));
-        return data.iterator();
+    public Object[][] dataProviderSingleWord() {
+        List<Object[]> result = Lists.newArrayList();
+        result.addAll(Arrays.asList(EmptySpaceInWord()));
+        result.addAll(Arrays.asList(DigitsInWords()));
+        result.addAll(Arrays.asList(Urls()));
+        result.addAll(Arrays.asList(IgnoreDotsInWords()));
+        result.addAll(Arrays.asList(IgnoreDotsInWordsWithErrors()));
+
+        return result.toArray(new Object[result.size()][]);
     }
 
+    @DataProvider
+    public Object[][] dataProviderMultipleWords() {
+        List<Object[]> result = Lists.newArrayList();
+        result.addAll(Arrays.asList(ErrorsInMultipleLangs()));
+        result.addAll(Arrays.asList(FullText()));
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+        return result.toArray(new Object[result.size()][]);
+    }
 
 
 }
