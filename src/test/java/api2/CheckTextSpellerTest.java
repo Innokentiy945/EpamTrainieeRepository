@@ -20,7 +20,7 @@ public class CheckTextSpellerTest extends SpellerAssert {
 
     @Test(dataProvider = "dataProviderMultipleWords", dataProviderClass = DataProviders.class)
     public void spellerMultipleWords(EntityBuilder testData) {
-        assertResultTexts(testData);
+        assertResultText(testData);
     }
 
     @Test(dataProvider = "dataProviderSingleWord", dataProviderClass = DataProviders.class)

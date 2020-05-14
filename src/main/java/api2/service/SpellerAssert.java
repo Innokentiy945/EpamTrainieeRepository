@@ -13,8 +13,4 @@ public class SpellerAssert {
         Assert.assertEquals(actualSpellerResult, testData.getDtos());
     }
 
-    public void assertResultTexts(EntityBuilder testData) {
-        SpellerDto[] actualSpellerResult = spellerOperations.checkText(testData.getTextRequest());
-        Assert.assertEquals(actualSpellerResult, testData.getDtos());
-    }
 }
