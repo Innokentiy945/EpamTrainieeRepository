@@ -12,7 +12,6 @@ import static api2.service.URI.CHECK_TEXT;
 
 public class SpellerOperations {
 
-
     public SpellerDto[] checkText(String text) {
         Map<String, Object> params = new HashMap<>();
         params.put("text", text);
@@ -22,8 +21,6 @@ public class SpellerOperations {
                         .getWithParams(CHECK_TEXT, params)
                         .getBody().asString(), SpellerDto[].class);
     }
-
-
 
     public SpellerDto[] checkTexts(String text) {
         Map<String, Object> params = new HashMap<>();

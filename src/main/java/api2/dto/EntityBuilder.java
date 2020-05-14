@@ -1,6 +1,5 @@
 package api2.dto;
 
-
 import lombok.*;
 
 @Data

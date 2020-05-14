@@ -1,10 +1,7 @@
 package api2.utils;
 
-
-
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-
 import java.io.IOException;
 import java.lang.reflect.Type;
 import java.nio.charset.StandardCharsets;
@@ -12,8 +9,6 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.List;
 import java.util.stream.Stream;
-
-
 import api2.dto.EntityBuilder;
 
 public class JsonParser {
@@ -35,3 +30,4 @@ public class JsonParser {
         return contentBuilder.toString();
     }
 }
+
