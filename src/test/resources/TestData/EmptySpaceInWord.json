@@ -1,0 +1,57 @@
+[
+  {
+    "textRequest" : "inf ormation",
+    "dtos": [
+      {
+        "code": 1,
+        "pos": 0,
+        "row": 0,
+        "col": 0,
+        "len": 12,
+        "word": "inf ormation",
+        "s": [
+          "information",
+          "informations",
+          "informacion"
+        ]
+      }
+    ]
+  },
+  {
+    "textRequest" : "in oramtion",
+    "dtos": [
+      {
+        "code": 1,
+        "pos": 3,
+        "row": 0,
+        "col": 3,
+        "len": 8,
+        "word": "oramtion",
+        "s": [
+          "ovation",
+          "oratione",
+          "foramtion"
+        ]
+      }
+    ]
+  },
+  {
+    "textRequest" : "infor m ation",
+    "dtos": [
+      {
+        "code": 1,
+        "pos": 0,
+        "row": 0,
+        "col": 0,
+        "len": 13,
+        "word": "infor m ation",
+        "s": [
+          "information",
+          "information'",
+          "informations"
+
+        ]
+      }
+    ]
+  }
+]

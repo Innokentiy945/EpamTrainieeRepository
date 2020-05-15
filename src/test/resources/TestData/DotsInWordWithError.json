@@ -1,0 +1,67 @@
+[
+  {
+    "textRequest" : "in.farmation",
+    "dtos": [
+      {
+        "code": 1,
+        "pos": 0,
+        "row": 0,
+        "col": 0,
+        "len": 12,
+        "word": "in.farmation",
+        "s": [
+          "in.formation",
+          "information",
+          "in.nformation",
+          "in.formatio",
+          "in.information",
+          "in.formotion",
+          "in.formacion",
+          "in.formations",
+          "in.furnation"
+        ]
+      }
+    ]
+  },
+  {
+    "textRequest" : "я.лако",
+    "dtos": [
+      {
+        "code": 1,
+        "pos": 2,
+        "row": 0,
+        "col": 2,
+        "len": 4,
+        "word": "лако",
+        "s": [
+          "локо",
+          "лаком",
+          "лакко",
+          "леко",
+          "локом",
+          "лака",
+          "лайко",
+          "лаго"
+        ]
+      }
+    ]
+  },
+  {
+    "textRequest" : "in.ormanion",
+    "dtos": [
+      {
+        "code": 1,
+        "pos": 3,
+        "row": 0,
+        "col": 3,
+        "len": 8,
+        "word": "ormanion",
+        "s": [
+          "ormation",
+          "formation",
+          "armenia"
+        ]
+      }
+    ]
+  }
+]
