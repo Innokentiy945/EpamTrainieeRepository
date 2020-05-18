@@ -1,0 +1,77 @@
+[
+  {
+    "textRequest" : "Starcraft 2",
+    "dtos": [
+      {
+        "code": 3,
+        "pos": 1,
+        "row": 0,
+        "col": 1,
+        "len": 9,
+        "word": "Starcraft",
+        "s": []
+      }
+    ]
+  },
+  {
+    "textRequest" : "Starcraft2",
+    "dtos": [
+      {
+        "code": 1,
+        "pos": 1,
+        "row": 0,
+        "col": 1,
+        "len": 10,
+        "word": "Starcraft2",
+        "s": []
+      }
+    ]
+  },
+  {
+    "textRequest" : "Star2craft",
+    "dtos": [
+      {
+        "code": 1,
+        "pos": 0,
+        "row": 0,
+        "col": 0,
+        "len": 10,
+        "word": "Star2craft",
+        "s": ["Starcraft",
+          "Star 2 craft",
+          "Stars 2 craft",
+          "Start 2 craft"]
+      }
+    ]
+  },
+  {
+    "textRequest" : "2Star2craft",
+    "dtos": [
+      {
+        "code": 1,
+        "pos": 0,
+        "row": 0,
+        "col": 0,
+        "len": 11,
+        "word": "2Star2craft",
+        "s": [
+
+        ]
+      }
+    ]
+  },
+  {
+    "textRequest" : "2tar2craf2",
+    "dtos": [
+      {
+        "code": 1,
+        "pos": 1,
+        "row": 0,
+        "col": 1,
+        "len": 10,
+        "word": "2tar2craf2",
+        "s": []
+      }
+    ]
+  }
+]

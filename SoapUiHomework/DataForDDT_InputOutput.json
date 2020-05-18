@@ -1,0 +1,19 @@
+{"testData": [
+
+    {"testcase": [
+      {"word":"Ap lication","expect":"Application"},
+      {"word":"App lication","expect":"Application"},
+      {"word":"Ap licatio","expect":"Application"}
+    ]},
+	{"testcase": [
+      {"word":"St rcraft","expect":"Starcraft"},
+      {"word":"St  craft","expect":"Starcraft"},
+      {"word":"Star craf","expect":"Starcraft"}
+    ]},
+	{"testcase": [
+      {"word":"In for ma tio n","expect":"Information"},
+      {"word":"Info rmation","expect":"Information"},
+      {"word":"I n f o r m a t i o n","expect":"Information"}
+    ]}
+]
+}
