@@ -34,7 +34,7 @@
 
     <profiles>
       
-                <profile>
+        <profile>
             <id>CucumberFunctionalTest</id>
             <activation>
                 <activeByDefault>true</activeByDefault>
@@ -62,6 +62,8 @@
                 <suite.xml>${project.basedir}/src/test/resources/hw4/Suits/BuilderFunctionalTest2</suite.xml>
             </properties>
         </profile>
+        </profiles>
+
 
 
 
@@ -137,19 +139,14 @@
             <version>${allure.version}</version>
         </dependency>
 
-    </dependencies>
-
-
-
-
-    <build>
-        <plugins>
         <dependency>
             <groupId>io.qameta.allure</groupId>
             <artifactId>allure-testng</artifactId>
             <version>${allure.version}</version>
         </dependency>
+
     </dependencies>
+    
     <build>
         <plugins>
             <plugin>
@@ -161,8 +158,8 @@
                     <target>${java.target.version}</target>
                 </configuration>
             </plugin>
-                    <encoding>UTF-8</encoding>
-                </configuration>
+            <encoding>UTF-8</encoding>
+            </configuration>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
